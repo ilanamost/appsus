@@ -12,8 +12,8 @@ export default {
    },
     template: `
     <section class="email-details">
-        <h1 class="email-subject">{{email.subject}}</h1>
-        <!-- <p v-if="email.isRead">Read </p> <i class="fa fa-envelope-open-o"></i>
+        <h1 class="email-subject"><i class="fa fa-envelope-open-o"></i>{{email.subject}}</h1>
+        <!-- <p v-if="email.isRead">Read </p> 
         <p v-if="!email.isRead">Unread</p> <i class="fa fa-envelope-o"></i> -->
         <p>{{email.body}}</p>
         <p>{{dateStr}}</p>

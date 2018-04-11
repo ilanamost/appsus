@@ -5,7 +5,8 @@ export default {
     template: `
             <section class="email-preview">
                 <li class="email">
-                    <h1 :class="{isRead: email.isRead}">{{email.subject}}</h1>
+                    <h1 :class="{isRead: email.isRead}" v-if="email.isRead"><i class="far fa-envelope-open"></i> &nbsp {{email.subject}}</h1>
+                    <h1 :class="{isRead: !email.isRead}" v-else><i class="far fa-envelope"></i> &nbsp {{email.subject}}</h1>
                 </li>
             </section>
     `,
