@@ -5,7 +5,7 @@ import emailPreview from './email-preview.js';
 export default {
     props: ['emails'],
     template: `
-        <section class="email">
+        <section class="email-list">
             <ul>
                 <email-preview v-for="email in emails" :key="email.id" :email="email"> </email-preview>
            </ul>

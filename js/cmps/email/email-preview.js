@@ -3,9 +3,11 @@ import emailService from '../../services/email.service.js'
 export default {
     props: ['email'],
     template: `
-        <li class="email">
-            <h1 :class="{isRead: email.isRead}">{{email.subject}}</h1>
-        </li>
+            <section class="email-preview">
+                <li class="email">
+                    <h1 :class="{isRead: email.isRead}">{{email.subject}}</h1>
+                </li>
+            </section>
     `,
     created() {
         // const emailId = +this.$route.params.emailId;
@@ -14,10 +16,10 @@ export default {
 
     },
     methods: {
-   
+
     },
 
     components: {
-      
+
     }
 }
