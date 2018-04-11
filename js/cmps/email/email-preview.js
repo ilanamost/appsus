@@ -4,7 +4,7 @@ export default {
     props: ['email'],
     template: `
             <section class="email-preview">
-                <li class="email">
+                <li class="email form-check">
                     <input type="checkbox" id="checkbox101"  
                     :class="{isRead: email.isRead}" class="filled-in form-check-input" 
                     :checked="email.isRead" /><i class="far" :class="email.isRead? 'fa-envelope-open' : 'fa-envelope'"></i> 
