@@ -1,24 +1,17 @@
-import emailService from '../services/email.service.js'
+import emailService from '../../services/email.service.js'
 import emailPreview from './email-preview.js';
 
 
 export default {
+    props: ['emails'],
     template: `
         <section class="email">
-            <ul v-for="email in emails">
-            <li><email-preview> <email-preview></li>
+            <ul>
+                <email-preview v-for="email in emails" :key="email.id" :email="email"> </email-preview>
            </ul>
         </section>
     `,
-    data() {
-        return {
-            emails: []
-        }
-    },
-    created() {
-        emailService.getEmails()
-            .then(emails => this.emails = emails);
-    },
+  
     methods: {
      
     },

@@ -1,10 +1,11 @@
 import utilService from './util.service.js'
 import storageService from './storage.service.js'
 import eventBus, {USR_MSG_DISPLAY} from './event-bus.service.js'
+import LoremIpsum from './loremIpsum.js'
 
 var emailsDB = [];
-
 const EMAILS_KEY = 'emailsApp';
+
 
 function getEmails() {
     return new Promise((resolve, reject) => {
@@ -25,26 +26,31 @@ function getEmails() {
 function generateEmails() {
     var emails = []
     for (let index = 0; index < 20; index++) {
-        var email = createEmail()
+        var email = createEmail(index + 1)
         emails.push(email)
     }
     return emails;
 }
 
 
-function createEmail() {
+function createEmail(i) {
     var loremIpsum = new LoremIpsum();
+   
 
     var email = {
-        id: getNextId(emailsDB),
+        id: i,
         subject: loremIpsum.generate(utilService.getRandomInt(1, 4), utilService.getRandomInt(3, 6)),
-        sentAt: randomDate(new Date(2012, 0, 1), new Date()).valueOf(),  
+        sentAt: utilService.randomDate(new Date(2012, 0, 1), new Date()).valueOf(),  
         body: loremIpsum.generate(utilService.getRandomInt(10, 30), utilService.getRandomInt(1, 4)),
         isRead: false,
     }
     return email;
 }
 
+export default{
+    getEmails,
+    createEmail
+}
 
 
 

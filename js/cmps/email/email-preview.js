@@ -1,17 +1,12 @@
-import emailService from '../services/email.service.js'
+import emailService from '../../services/email.service.js'
 
 export default {
     props: ['email'],
     template: `
-        <section class="email">
-            <h1 :class="{isRead: email.isRead}">this.email.subject</h1>
-        </section>
+        <li class="email">
+            <h1 :class="{isRead: email.isRead}">{{email.subject}}</h1>
+        </li>
     `,
-    data() {
-        return {
-            email: null
-        }
-    },
     created() {
         // const emailId = +this.$route.params.emailId;
         // emailService.getById(emailId)

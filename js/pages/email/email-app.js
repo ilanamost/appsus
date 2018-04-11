@@ -1,11 +1,25 @@
+import emailService from '../../services/email.service.js'
+import emailList from '../../cmps/email/email-list.js'
 
 
 export default {
+    data(){
+        return {
+            emails: []
+        }
+    },
 
     template: `<section>
         <h1>email-app</h1>
-    <!-- <book-filter @filtered="setFilter"></book-filter>
-    <book-details  v-if="selectedBook" :book="selectedBook" @close="closeDetails" ></book-details>
-    <book-list :books="booksToShow" @selected="selectBook"></book-list> -->
-    </section>`
+        <email-list :emails="emails"> </email-list>
+    </section>`,
+
+    created() {
+        emailService.getEmails()
+            .then(emails => this.emails = emails);
+    },
+
+    components: {
+        emailList
+    }
 };
