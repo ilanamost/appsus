@@ -10,7 +10,7 @@ function getEmails() {
     return new Promise((resolve, reject) => {
         var emails = storageService.load(EMAILS_KEY);
         if (!emails) {
-            emails = generatebooks();
+            emails = generateEmails();
             storageService.store(EMAILS_KEY, emails)
         }
         emailsDB = emails;
@@ -27,7 +27,6 @@ function generateEmails() {
     for (let index = 0; index < 20; index++) {
         var email = createEmail()
         emails.push(email)
-
     }
     return emails;
 }
