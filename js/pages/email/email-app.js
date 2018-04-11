@@ -1,6 +1,7 @@
 import emailService from '../../services/email.service.js'
 import emailList from '../../cmps/email/email-list.js'
 import emailDetails from '../../cmps/email/email-details.js'
+import emailPreview from '../../cmps/email/email-preview.js'
 
 
 export default {
@@ -11,11 +12,14 @@ export default {
         }
     },
 
-    template: `<section>
-        <h1>email-app</h1>
-        <email-list :emails="emails" @selected="selectEmail"> </email-list>
-        <email-details :email="selectedEmail"> </email-details>
-    </section>`,
+    template: `
+        <section class="email-app grid-container">
+            <h1>email-app</h1>
+            <email-list :emails="emails" @selected="selectEmail"> </email-list>
+            <section class="preview-wrapper">
+                <email-details v-if="selectedEmail" :email="selectedEmail"> </email-details>
+            </section>
+        </section>`,
 
     created() {
         // debugger;
@@ -53,7 +57,8 @@ export default {
     },
 
     components: {
-        emailList,
+        emailList, 
+        emailPreview,
         emailDetails
     }
 };

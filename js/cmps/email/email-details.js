@@ -5,16 +5,18 @@ export default {
     created () {
 
     },
-    methods: {
-
-    },
+   computed: {
+      dateStr() {
+          return moment(this.email.sentAt).format("MMM Do YY")
+      }
+   },
     template: `
     <section class="email-details">
         <h1 class="email-subject">{{email.subject}}</h1>
-        <p v-if="email.isRead">Read</p>
-        <p v-if="!email.isRead">Unread</p>
+        <!-- <p v-if="email.isRead">Read </p> <i class="fa fa-envelope-open-o"></i>
+        <p v-if="!email.isRead">Unread</p> <i class="fa fa-envelope-o"></i> -->
         <p>{{email.body}}</p>
-        <p>{{moment(email.sentAt).format("MMM Do YY")}}</p>
+        <p>{{dateStr}}</p>
     </section>
     `
 }
