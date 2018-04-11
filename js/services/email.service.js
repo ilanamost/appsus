@@ -36,9 +36,9 @@ function createEmail() {
     var loremIpsum = new LoremIpsum();
 
     var email = {
-        // id: utilService.getRandomString(11),
+        id: getNextId(emailsDB),
         subject: loremIpsum.generate(utilService.getRandomInt(1, 4), utilService.getRandomInt(3, 6)),
-        // sentAt: moment(sentAt: moment(randomDate(new Date(2012, 0, 1), new Date())).format("MMM Do YY")).format("MMM Do YY"),
+        sentAt: randomDate(new Date(2012, 0, 1), new Date()).valueOf(),  
         body: loremIpsum.generate(utilService.getRandomInt(10, 30), utilService.getRandomInt(1, 4)),
         isRead: false,
     }
