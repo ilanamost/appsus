@@ -1,15 +1,8 @@
-import emailService from '../../cmps/services/email.service.js'
+import emailService from '../../services/email.service.js'
 
 export default {
-    data () {
-        return {
-            email: null,
-        }
-    },
+    props: ['email'],
     created () {
-
-    },
-    computed: {
 
     },
     methods: {

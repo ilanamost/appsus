@@ -7,7 +7,8 @@ import emailPreview from '../../cmps/email/email-preview.js'
 export default {
     data(){
         return {
-            emails: []
+            emails: [],
+            selectedEmail: null
         }
     },
 
@@ -22,8 +23,38 @@ export default {
         </section>`,
 
     created() {
+        debugger;
         emailService.getEmails()
             .then(emails => this.emails = emails);
+
+        this.selectedEmail = this.emails[0];
+    },
+
+    computed:{
+        // emailToShow() {
+        //     debugger;
+        //     if(!this.selectedEmail) {
+        //         return this.emails[0];
+        //     } else{
+        //         return this.selectedEmail;
+        //     }
+        // }
+    },
+
+    methods:{
+        selectEmail(emailId) {
+            var email = this.emails.find(email => email.id === emailId);
+            this.selectedEmail = email;
+        }
+
+        // emailToShow() {
+        //     debugger;
+        //     if(!this.selectedEmail) {
+        //         return this.emails[0];
+        //     } else{
+        //         return this.selectedEmail;
+        //     }
+        // }
     },
 
     components: {

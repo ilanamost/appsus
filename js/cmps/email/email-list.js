@@ -7,13 +7,17 @@ export default {
     template: `
         <section class="email-list">
             <ul>
-                <email-preview v-for="email in emails" :key="email.id" :email="email"> </email-preview>
+                <email-preview v-for="email in emails" :key="email.id" :email="email" @click.native="selectEmail(idx)"> 
+                </email-preview>
            </ul>
         </section>
     `,
   
     methods: {
-     
+        selectEmail(idx) {
+            var email = this.emails[idx];
+            this.$emit('selected', email.id);
+        }
     },
 
     components: {
