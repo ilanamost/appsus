@@ -29,6 +29,14 @@ function getCurrency(currencyCode) {
     }
 }
 
+function getNextId(items) {
+    var max = 0;
+    items.forEach(function(item){
+        if (item.id > max) max = item.id;
+    })
+    return max+1;
+  }
+
 export default {
     getRandomInt,
     getRandomString : makeid,
