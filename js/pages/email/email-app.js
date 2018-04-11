@@ -18,7 +18,7 @@ export default {
     </section>`,
 
     created() {
-        debugger;
+        // debugger;
         emailService.getEmails()
             .then(emails => this.emails = emails);
 
