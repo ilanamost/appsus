@@ -36,10 +36,15 @@ function getNextId(items) {
     })
     return max+1;
   }
+  
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
 
 export default {
     getRandomInt,
     getRandomString : makeid,
-    getCurrency
+    getCurrency,
+    randomDate
 }
 

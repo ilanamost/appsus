@@ -18,11 +18,10 @@ export default {
     template: `
     <section class="email-details">
         <h1 class="email-subject">{{email.subject}}</h1>
-        <!-- <h1 v-if="ok">Yes</h1> -->
         <p v-if="email.isRead">Read</p>
-        <p v-if="!email.isRead">Unead</p>
+        <p v-if="!email.isRead">Unread</p>
         <p>{{email.body}}</p>
-        <p>{{email.sentAt}}</p>
+        <p>{{moment(email.sentAt).format("MMM Do YY")}}</p>
     </section>
     `
 }
