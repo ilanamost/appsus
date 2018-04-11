@@ -5,7 +5,11 @@ export default {
     template: `
             <section class="email-preview">
                 <li class="email">
-                    <h1 :class="{isRead: email.isRead}">{{email.subject}}</h1>
+                    <input type="checkbox" id="checkbox101"  
+                    :class="{isRead: email.isRead}" class="filled-in form-check-input" 
+                    :checked="email.isRead" /><i class="far" :class="email.isRead? 'fa-envelope-open' : 'fa-envelope'"></i> 
+                    &nbsp; {{email.subject}}
+                    <label class="form-check-label" for="checkbox101">Filled-in checkbox</label>
                 </li>
             </section>
     `,
