@@ -15,15 +15,14 @@ export default {
     template: `
         <section class="email-app grid-container">
             <h1>email-app</h1>
-            <email-list :emails="emails"> </email-list>
+            <email-list :emails="emails" @selected="selectEmail"> </email-list>
             <section class="preview-wrapper">
-                <email-preview :emails="emails"> </email-preview>
-                <email-details :emails="emails"> </email-details>
-            <section>
+                <email-details v-if="selectedEmail" :email="selectedEmail"> </email-details>
+            </section>
         </section>`,
 
     created() {
-        debugger;
+        // debugger;
         emailService.getEmails()
             .then(emails => this.emails = emails);
 
