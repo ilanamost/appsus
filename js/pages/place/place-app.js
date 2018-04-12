@@ -42,7 +42,7 @@ export default {
             <section>
                 <place-filter :places="places"></place-filter> 
                 <place-list :places="places" @selected="selectPlace" @delete="deletePlace"></place-list> 
-                <place-map></place-map>
+                <place-map :places="places"></place-map>
                 <place-details v-if="selectedPlace" :place="selectedPlace"></place-details>
             </section>
         `,
