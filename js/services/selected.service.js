@@ -3,9 +3,6 @@ import storageService from './storage.service.js'
 import eventBus, {USR_MSG_DISPLAY} from './event-bus.service.js'
 
 
-const KEY = 'appKey';
-
 export default {
     
 }
-
