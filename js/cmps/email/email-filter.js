@@ -17,25 +17,15 @@ export default {
     },
     template: `
         <section class="container book-filter">
-            <button class="clear-btn filter-btn">Filter</button>
-            <div class="control">
-                <label>
-                    By Subject
-                    <input type="text" v-model="filterBy.bySubject" @input="emitFilter" />
-                </label> 
-            </div>
-            <label>
-                from Date
-                <input type="date" v-model="filterBy.fromDate" @input="emitFilter" />
-            </label> 
-            <label>
-                to Date
-                <input type="date" v-model="filterBy.toDate" @input="emitFilter" />
-            </label> 
-            <form action="">
+            
+            <input type="text" v-model="filterBy.bySubject" @input="emitFilter" title="By Subject" placeholder="Filter By Subject"/>
+            <input type="date" v-model="filterBy.fromDate" @input="emitFilter" title="From Date"/>
+            <input type="date" v-model="filterBy.toDate" @input="emitFilter" title="to Date"/>
+            <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button>
+            <!-- <form>
                 <input type="radio" name="isRead" value="read">read<br>
                 <input type="radio" name="isRead" value="unread">unread<br>
-            </form>
+            </form> -->
 
         </section>
             `
