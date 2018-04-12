@@ -87,21 +87,16 @@ function filterEmails(emails, filter = null) {
         if (filter) {
             var fromDate = filter.fromDate ? new Date(filter.fromDate) : -Infinity;
             var toDate = filter.toDate ? new Date(filter.toDate) : Infinity;
-            if (filter && filter.filterBy === 'read') filter.filterBy = true;
-            if (filter && filter.filterBy === 'unRead') filter.filterBy = false;
-
-            if (filter && filter.filterBy !== 'all') filteredEmails = emails.filter(email => {
-                return email.subject.indexOf(filter.bySubject) !== -1
+            filteredEmails = emails.filter(email => {
+                let isReadFilter = true;
+                if (filter.isRead !== 'all') {
+                    isReadFilter = filter.isRead === 'read'? email.isRead : !email.isRead;
+                }
+                return isReadFilter
+                    && email.subject.indexOf(filter.bySubject) !== -1
                     && email.sentAt >= fromDate && email.sentAt <= toDate
-                    // && email.isRead === filter.isRead
-
-                // && email.isRead === filter.filterBy)
-            })
-            else if (filter && filter.filterBy === 'all') filteredEmails = emails.filter(email => {
-                return email.subject.indexOf(filter.bySubject) !== -1
-                    && email.sentAt >= fromDate && email.sentAt <= toDate
-                    // && email.isRead === filter.isRead
-            })
+                })
+           
     };
 
 resolve(filteredEmails);
