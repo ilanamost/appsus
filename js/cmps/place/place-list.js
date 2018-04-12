@@ -12,8 +12,7 @@ export default {
                 </place-preview> -->
                 <place-preview v-for="place in places" :place="place" 
                 @delete="$emit('delete', place.id)"
-                :key="place.id" 
-                @click.native="selectPlace(place.id)">
+                :key="place.id" @click.native="selectPlace(place.id)">
                 </place-preview>
            </ul>
         </section>
@@ -21,7 +20,6 @@ export default {
 
     methods: {
         selectPlace(placeId) {
-            debugger;
             this.$emit('selected', placeId);
         }
         // emitDelete(email){

@@ -5,7 +5,9 @@ export default {
     template: `
             <section>
                 <li>{{place.name}}</li>
-                <button @click.stop="$emit('delete')" title="Delete"><i class="far fa-trash-alt"></i></button>
+                <button @click.stop="$emit('delete')" title="Delete">
+                    <i class="far fa-trash-alt"></i>
+                </button>
             </section>
     `,
     computed:{
