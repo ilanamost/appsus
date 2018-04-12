@@ -5,6 +5,7 @@ import LoremIpsum from './loremIpsum.js'
 
 var placessDB = [];
 var tagsDB = ['Fun', 'Food', 'Work', 'Romantic', 'Music', 'Dance', 'Extrim', 'Family', 'Children'];
+var placesNamesDB = ['alaska', 'times squre', 'ko phi phi', 'London Eye', 'petra', 'Niagra falls'];
 
 const PLACES_KEY = 'placeApp';
 
@@ -37,13 +38,13 @@ function createPlace(lat, lng) {
 
     var place = {
         id: i,
-        name: loremIpsum.generate(utilService.getRandomInt(1, 4), utilService.getRandomInt(3, 6)),
+        name: placesNamesDB[utilService.getRandomInt(0, placesNamesDB.length)],
         desc: loremIpsum.generate(utilService.getRandomInt(10, 30), utilService.getRandomInt(1, 4)),
         tags: [],
         imgUrl: `img/${utilService.getRandomInt(1, 20)}.jpg`,
     }
     var randomTagIdx = utilService.getRandomInt(0, tagsDB.length);
-    for (var i = 0; i < randomTagIdx; i++) {
+    for (var j = 0; j < randomTagIdx; j++) {
         var tag = tagsDB[randomTagIdx];
         place.tags.push(tag);
     }

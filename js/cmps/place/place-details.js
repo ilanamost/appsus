@@ -17,6 +17,8 @@ export default {
         <!-- <p>{{place.name}}</p>
         <p>{{place.desc}}</p>
         <p>{{dateStr}}</p> -->
+        <p>{{place.tags}}</p>
+        <img src="{{imgUrl}}"/>
     </section>
     `
 }
