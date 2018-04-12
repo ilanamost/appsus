@@ -2,6 +2,7 @@ import utilService from './util.service.js'
 import storageService from './storage.service.js'
 import eventBus, { USR_MSG_DISPLAY } from './event-bus.service.js'
 import LoremIpsum from './loremIpsum.js'
+import placeFilter from '../cmps/place/place-filter.js'
 
 var placesDB = [];
 
@@ -98,5 +99,7 @@ function deletePlace(placeId) {
 export default {
     getPlaces,
     generatePlaces,
-    deletePlace
+    deletePlace,
+    placeFilter,
+    // createPlace
 }
