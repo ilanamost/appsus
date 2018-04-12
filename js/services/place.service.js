@@ -24,67 +24,57 @@ function getPlaces() {
 
 
 function generatePlaces() {
-   var places = [];
+    var places = [];
+    var places =
+        [{
+            id: 1,
+            name: 'Alaska',
+            desc: 'Alaska is a U.S. state located in the northwest extremity of North America.',
+            tags: ['Cold', 'Extrim'],
+            lat: 64.2008413,
+            lng: -149.4936733,
+            imgUrl: `img/15.jpg`
+        },
 
-   var place = {
-    id: 1,
-    name: 'Alaska',
-    desc: 'Alaska is a U.S. state located in the northwest extremity of North America.',
-    tags: ['Cold', 'Extrim'],
-    lat: 64.2008413,
-    lng: -149.4936733,
-    imgUrl: `img/1.jpg`
-}
-   var places =
-    [{
-        id: 2,
-        name: 'Alaska',
-        desc: 'Alaska is a U.S. state located in the northwest extremity of North America.',
-        tags: ['Cold', 'Extrim'],
-        lat: 64.2008413,
-        lng: -149.4936733,
-        imgUrl: `img/1.jpg`
-    },
+        {
+            id: 2,
+            name: 'Times Squre',
+            desc: 'Times Square is a major commercial intersection, tourist destination, entertainment center and neighborhood in the Midtown Manhattan section of New York City at the junction of Broadway and Seventh Avenue.',
+            tags: ['Fun', 'Family'],
+            lat: 40.759011,
+            lng: -73.9844722,
+            imgUrl: `img/2.jpg`
+        },
 
-    {
-        id: 3,
-        name: 'Times Squre',
-        desc: 'Times Square is a major commercial intersection, tourist destination, entertainment center and neighborhood in the Midtown Manhattan section of New York City at the junction of Broadway and Seventh Avenue.',
-        tags: ['Fun', 'Family'],
-        lat: 40.759011,
-        lng: -73.9844722,
-        imgUrl: `img/2.jpg`
-    },
+        {
+            id: 3,
+            name: 'Ko Phi Phi',
+            desc: 'The Phi Phi Islands are an island group in Thailand, between the large island of Phuket and the west Strait of Malacca coast of the mainland.',
+            tags: ['Relax', 'Family'],
+            lat: 7.740738,
+            lng: 98.77841,
+            imgUrl: `img/3.jpg`
+        },
 
-    {
-        id: 4,
-        name: 'Ko Phi Phi',
-        desc: 'The Phi Phi Islands are an island group in Thailand, between the large island of Phuket and the west Strait of Malacca coast of the mainland.',
-        tags: ['Relax', 'Family'],
-        lat: 7.740738,
-        lng: 98.77841,
-        imgUrl: `img/3.jpg`
-    },
+        {
+            id: 4,
+            name: 'London Eye',
+            desc: 'The London Eye, known for sponsorship reasons as the Coca-Cola London Eye, is a giant Ferris wheel on the South Bank of the River Thames in London.',
+            tags: ['Relax', 'Family', 'Fun'],
+            lat: 51.503324,
+            lng: -0.119543,
+            imgUrl: `img/10.jpg`
+        },
 
-    {
-        id: 5,
-        name: 'London Eye',
-        desc: 'The London Eye, known for sponsorship reasons as the Coca-Cola London Eye, is a giant Ferris wheel on the South Bank of the River Thames in London.',
-        tags: ['Relax', 'Family', 'Fun'],
-        lat: 51.503324,
-        lng: -0.119543,
-        imgUrl: `img/4.jpg`
-    },
-
-    {
-        id: 6,
-        name: 'Niagra Falls',
-        desc: 'Niagara Falls is the collective name for three waterfalls that straddle the international border between the Canadian province Ontario and the American state of New York. ',
-        tags: ['Relax', 'Romantic'],
-        lat: 43.0828162,
-        lng: -79.07416289999999,
-        imgUrl: `img/5.jpg`
-    }];
+        {
+            id: 5,
+            name: 'Niagra Falls',
+            desc: 'Niagara Falls is the collective name for three waterfalls that straddle the international border between the Canadian province Ontario and the American state of New York. ',
+            tags: ['Relax', 'Romantic'],
+            lat: 43.0828162,
+            lng: -79.07416289999999,
+            imgUrl: `img/5.jpg`
+        }];
     return places;
 }
 
