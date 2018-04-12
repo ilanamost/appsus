@@ -1,6 +1,6 @@
 import utilService from './util.service.js'
 import storageService from './storage.service.js'
-import eventBus, {USR_MSG_DISPLAY} from './event-bus.service.js'
+import eventBus, {USR_MSG_DISPLAY, EMAILS_COUNT} from './event-bus.service.js'
 import LoremIpsum from './loremIpsum.js'
 
 var emailsDB = [];
@@ -15,12 +15,9 @@ function getEmails() {
             storageService.store(EMAILS_KEY, emails)
         }
         emailsDB = emails;
-        // emitEmailsCount();
         resolve(emailsDB);
     });
 }
-
-
 
 
 function generateEmails() {
@@ -35,7 +32,6 @@ function generateEmails() {
 
 function createEmail(i) {
     var loremIpsum = new LoremIpsum();
-   
 
     var email = {
         id: i,
@@ -45,6 +41,11 @@ function createEmail(i) {
         isRead: false,
     }
     return email;
+}
+
+   
+function emitEmailsCount(){
+    eventBus.$emit(EMAILS_COUNT, emailsDB.length);
 }
 
 export default{

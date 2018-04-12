@@ -22,3 +22,11 @@ header{
     text-align: center;
  }
 
+
+ /* .email isRead{
+     font-weight: bold;
+ } */
+
+ .isRead{
+    font-weight: bold;
+ }

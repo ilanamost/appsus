@@ -14,7 +14,6 @@ export default {
 
     template: `
         <section class="email-app grid-container">
-            <h1>email-app</h1>
             <email-list :emails="emails" @selected="selectEmail"> </email-list>
             <section class="preview-wrapper">
                 <email-details v-if="selectedEmail" :email="selectedEmail"> </email-details>
@@ -22,22 +21,12 @@ export default {
         </section>`,
 
     created() {
-        // debugger;
         emailService.getEmails()
             .then(emails => this.emails = emails);
-
-        this.selectedEmail = this.emails[0];
     },
 
     computed:{
-        // emailToShow() {
-        //     debugger;
-        //     if(!this.selectedEmail) {
-        //         return this.emails[0];
-        //     } else{
-        //         return this.selectedEmail;
-        //     }
-        // }
+      
     },
 
     methods:{
@@ -45,15 +34,6 @@ export default {
             var email = this.emails.find(email => email.id === emailId);
             this.selectedEmail = email;
         }
-
-        // emailToShow() {
-        //     debugger;
-        //     if(!this.selectedEmail) {
-        //         return this.emails[0];
-        //     } else{
-        //         return this.selectedEmail;
-        //     }
-        // }
     },
 
     components: {
