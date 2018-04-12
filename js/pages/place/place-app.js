@@ -7,6 +7,7 @@ export default {
     data(){
         return {
             places: [],
+            selectedPlace: null
         }
     },
     components: {
@@ -23,14 +24,22 @@ export default {
             placeService.getPlaces()
             .then(places => this.places = places)
             // .then(() => this.filterEmails())
-        }
+        },
+        selectPlace(placeId) {
+            var place = this.places.find(place => place.id === placeId);
+            this.selectedPlace = place;
+        },
+        deletePlace(id){
+            placeService.deletePlace(id)
+            .then(this.setPlaces);
+        },
     },
 
     template: `
             <section>
                 <!-- <h1>place-app</h1> -->
                 <place-filter :places="places"></place-filter> 
-                <place-list :places="places"></place-list> 
+                <place-list :places="places" @selected="selectPlace" @delete="deletePlace"></place-list> 
                 <place-map></place-map>
             </section>
         `,

@@ -90,7 +90,6 @@ export default {
 
     template: `
                 <div class="map">
-                    <h1>map</h1>
                     <div id="map" style="width: 96%; height: 450px;"></div>
                </div>
     `
