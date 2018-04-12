@@ -6,7 +6,8 @@ export default {
     },
     data(){
         return {
-            filterBy: {name:'', tag: '', toDate: '',bySubject: ''}
+            selected:[],
+            filterBy: {name:'', tag: this.selected},
         }
     },
     methods: {
@@ -16,22 +17,20 @@ export default {
         }
     },
     template: `
-        <section class="container book-filter">
-            
-            <input type="text" v-model="filterBy.bySubject" @input="emitFilter" title="By Subject" placeholder="Filter By Subject"/>
-            <input type="date" v-model="filterBy.fromDate" @input="emitFilter" title="From Date"/>
-            <input type="date" v-model="filterBy.toDate" @input="emitFilter" title="to Date"/>
-            <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button>
-
-            <select v-model="filterBy.isRead" @change="emitFilter" >
-                <option value="read">Read</option>  
-                <option value="unRead">UnRead</option>  
-                <option value="all">All</option>  
-            </select>
-
-                <!-- <option type="radio" name="isRead" value="read">read<br>
-                <input type="radio" name="isRead" value="unread">unread<br> -->
-
-        </section>
+            <section class="container place-filter">
+                <input type="text" v-model="filterBy.name" @input="emitFilter" title="Search for address/ place name" placeholder="Filter By Name"/>
+                <!-- <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button> -->
+                <select v-model="selected" @change="emitFilter" multiple="multiple">
+                    <option value="Fun">Fun</option>  
+                    <option value="Food">Food</option>  
+                    <option value="Work">Work</option>  
+                    <option value="Romantic">Romantic</option>  
+                    <option value="Music">Music</option>  
+                    <option value="Dance">Dance</option>  
+                    <option value="Extrim">Extrim</option>  
+                    <option value="Family">Family</option>  
+                    <option value="Children">Children</option>  
+                </select>
+            </section>
             `
     };

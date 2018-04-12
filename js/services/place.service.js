@@ -2,6 +2,7 @@ import utilService from './util.service.js'
 import storageService from './storage.service.js'
 import eventBus, { USR_MSG_DISPLAY } from './event-bus.service.js'
 import LoremIpsum from './loremIpsum.js'
+import placeFilter from '../cmps/place/place-filter.js'
 
 var placessDB = [];
 var tagsDB = ['Fun', 'Food', 'Work', 'Romantic', 'Music', 'Dance', 'Extrim', 'Family', 'Children'];
@@ -54,5 +55,6 @@ function createPlace(lat, lng) {
 export default{
     getPlaces, 
     generatePlaces,
-    createPlace
+    createPlace, 
+    placeFilter
 }
