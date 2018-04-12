@@ -46,6 +46,6 @@ export default {
     getRandomString : makeid,
     getCurrency,
     randomDate,
-    getNextId
+    getNextId,
 }
 

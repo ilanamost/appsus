@@ -14,6 +14,7 @@ export default {
                     <i :class="envelopeClass"></i> 
                     
                     &nbsp; {{email.subject}}
+                    <button @click="$emit('delete')">Delete</button>
                 </li>
             </section>
     `,

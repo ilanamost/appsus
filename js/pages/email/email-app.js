@@ -14,15 +14,14 @@ export default {
 
     template: `
         <section class="email-app grid-container">
-            <email-list :emails="emails" @selected="selectEmail"> </email-list>
+            <email-list @delete="deleteEmail" :emails="emails" @selected="selectEmail"> </email-list>
             <section class="preview-wrapper">
                 <email-details v-if="selectedEmail" :email="selectedEmail"> </email-details>
             </section>
         </section>`,
 
     created() {
-        emailService.getEmails()
-            .then(emails => this.emails = emails);
+        this.setEmails();
     },
 
     computed:{
@@ -33,6 +32,14 @@ export default {
         selectEmail(emailId) {
             var email = this.emails.find(email => email.id === emailId);
             this.selectedEmail = email;
+        },
+        setEmails(){ 
+        emailService.getEmails()
+            .then(emails => this.emails = emails);
+        },
+        deleteEmail(id){
+            emailService.deleteEmail(id)
+            .then(this.setEmails)
         }
     },
 

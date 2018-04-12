@@ -43,14 +43,47 @@ function createEmail(i) {
     return email;
 }
 
-   
+function sortByTitle(emailA, emailB) {
+    var nameA = emailA.subject.toUpperCase();
+    var nameB = emailB.subject.toUpperCase();
+
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+
+    // names must be equal
+    return 0;
+}
+
+function sortByDate(emailA, emailB) {
+    var nameA = emailA.sentAt;
+    var nameB = emailB.sentAt;
+
+    if (nameA < nameB) return -1;
+    if (nameA > nameB) return 1;
+
+    // names must be equal
+    return 0;
+}
+
+function deleteEmail(emailId) {
+    var emails = storageService.load(EMAILS_KEY)
+    var emailIdx = emails.findIndex(email => email.id === emailId);    
+    emails.splice(emailIdx, 1);
+    storageService.store(EMAILS_KEY, emails);
+    return Promise.resolve({succes: true})
+}
+
+
 function emitEmailsCount(){
     eventBus.$emit(EMAILS_COUNT, emailsDB.length);
 }
 
 export default{
     getEmails,
-    createEmail
+    createEmail,
+    sortByTitle,
+    sortByDate,
+    deleteEmail
 }
 
 

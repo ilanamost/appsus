@@ -22,11 +22,10 @@ header{
     text-align: center;
  }
 
+ li.email.form-check.isRead{
+    font-weight: normal;
+ }
 
- /* .email isRead{
-     font-weight: bold;
- } */
-
- .isRead{
+ li.email.form-check{
     font-weight: bold;
  }
