@@ -74,28 +74,32 @@ function deleteEmail(emailId) {
     return Promise.resolve({succes: true})
 }
 
-
-function emitEmailsCount(){
-    eventBus.$emit(EMAILS_COUNT, emailsDB.length);
-}
-
-
 function filterEmails(emails, filter = null){
     return new Promise((resolve, reject) => {
         var filteredEmails = emails.slice();
 
         if (filter) {
             filteredEmails = emails.filter(email => {
-            return (email.subject.indexOf(filter.bySubject) !== -1
-            && email.sentAt >= +filter.fromDate && filter.toDate === ''
-            && filter.isRead === email.isRead);
+            return (email.subject.indexOf(filter.bySubject) !== -1)
+            // && email.sentAt >= +filter.fromDate && filter.toDate === ''
+            // && filter.isRead === email.isRead);
         });
         }
         resolve(filteredEmails);
     });
 }
 
-function sendEmail() {
+//might be used in case we would like to add sent items folder
+// function saveEmail(email) {
+//     return storageService.load(EMAILS_KEY)
+//         .then(emails => {
+//                 email.id = utilService.getNextId();
+//                 emails.push(email);
+//             return storageService.store(EMAILS_KEY, emails);
+//         });
+// }
+
+function composeEmail() {
     window.open('mailto:noramarcelli@gmail.com?subject=subject&body=body');
 }
 
@@ -107,7 +111,7 @@ export default{
     sortByDate,
     deleteEmail,
     filterEmails,
-    sendEmail
+    composeEmail,
 }
 
 

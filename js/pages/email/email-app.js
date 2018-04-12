@@ -3,6 +3,7 @@ import emailList from '../../cmps/email/email-list.js'
 import emailDetails from '../../cmps/email/email-details.js'
 import emailPreview from '../../cmps/email/email-preview.js'
 import emailFilter from '../../cmps/email/email-filter.js'
+import emailCompose from '../../cmps/email/email-compose.js'
 
 
 export default {
@@ -21,16 +22,13 @@ export default {
             <email-filter @filtered="setFilter"> </email-filter>
             <email-list  :emails="filteredEmails" @selected="selectEmail" @delete="deleteEmail"> </email-list>
             <section class="preview-wrapper">
+                <email-compose></email-compose>
                 <email-details v-if="selectedEmail" :email="selectedEmail"> </email-details>
             </section>
         </section>`,
 
     created() {
         this.setEmails();
-        
-        emailService.getEmails()
-            .then(emails => this.emails = emails)
-            .then(() => this.filterEmails())
     },
 
     computed:{
@@ -43,8 +41,9 @@ export default {
             this.selectedEmail = email;
         },
         setEmails(){ 
-        emailService.getEmails()
-            .then(emails => this.emails = emails);
+            emailService.getEmails()
+            .then(emails => this.emails = emails)
+            .then(() => this.filterEmails())
         },
         deleteEmail(id){
             emailService.deleteEmail(id)
@@ -57,6 +56,7 @@ export default {
             // console.log('Setting filter:', filter)
         },
         filterEmails() {
+            console.log('filtering emails:', this.emails)
             emailService.filterEmails(this.emails, this.filter)
                 .then(curEmails => {
                     this.filteredEmails = curEmails
@@ -68,6 +68,7 @@ export default {
         emailList, 
         emailPreview,
         emailDetails,
-        emailFilter
+        emailFilter,
+        emailCompose
     }
 };

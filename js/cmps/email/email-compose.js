@@ -1,34 +1,42 @@
-import emailService from '../services/email.service.js'
-import emailDetails from '../pages/email-details.js';
+import emailService from '../../services/email.service.js'
+import emailDetails from './email-details.js';
 
 export default {
     data() {
         return {
             emails: null,
-            show: false
+            show: false,
+            composedEmail: {subject: '',  body: ''}
         }
     },
     methods: {
         composeEmail() {
             emailService.composeEmail()
-            .then(emails => {
-                this.emails = emails;
-            })
+                .then(emails => {
+                    this.emails = emails;
+                })
+        },
+
+        toggleForm(){
+           
         }
     },
-        template: `
+    template: `
         <section>
-            <input @input="composeEmail()"/>
+            <button type="button" @click="toggleForm"> Compose </button>
 
-            <form action="javascript:sendMail();" name="pmForm" id="pmForm" method="post">
-                Email address:
-                <input name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" />
-                <input name="pmSubmit" type="submit" value="Invite" />
-                
+            <!-- <input type="text" @input="composeEmail()" /> -->
+            <form action="javascript:sendMail();" name="pmForm" id="pmForm" method="post" >  
+                <input v-model="composedEmail.subject" name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" placeholder="Enter email subject" />
+                <input  v-model="composedEmail.body" name="pmBody" id="pmBody" type="text" maxlength="64" style="width:98%;" placeholder="Enter email body" />
+                <input name="pmAddress" id="pmAddress" type="text" maxlength="64" style="width:98%;" placeholder="noramarcelli@gmail.com" readonly/>
+                <button name="pmSubmit" type="submit" @click="composeEmail(composedEmail.subject, composedEmail.body)">Send</button>
+                 
                 <ul v-for="email in emails">
-                    <li>{{book.volumeInfo.title}}</li>
-                </ul>
+                    <li>{{email.subject}}</li>
+                </ul> 
+            </form>
         </section>
     `
-    }
+}
 
