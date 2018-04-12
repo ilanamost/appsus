@@ -12,10 +12,11 @@ export default {
    },
     template: `
     <section class="place-details">
+        <h1>details</h1>
         <!-- <h1 class="email-subject">{{email.subject}}</h1> -->
-        <p>{{place.name}}</p>
+        <!-- <p>{{place.name}}</p>
         <p>{{place.desc}}</p>
-        <p>{{dateStr}}</p>
+        <p>{{dateStr}}</p> -->
     </section>
     `
 }

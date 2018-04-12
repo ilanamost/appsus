@@ -10,22 +10,20 @@ export default {
                 @delete="$emit('delete', email.id)" :key="email.id" 
                 :email="email" @click.native="selectEmail(email.id)"> 
                 </place-preview> -->
-                <place-preview v-for="place in places" :place="place" :key="place.id" >
+                <place-preview v-for="place in places" :place="place" 
+                @delete="$emit('delete', place.id)"
+                :key="place.id" 
+                @click.native="selectPlace(place.id)">
                 </place-preview>
            </ul>
         </section>
     `,
 
     methods: {
-        // selectEmail(emailId) {
-        //     this.$emit('selected', emailId);
-        // },
-        // sortByTitle() {
-        //     this.emails.sort(emailService.sortByTitle);
-        // },
-        // sortByDate() {
-        //     this.emails.sort(emailService.sortByDate);
-        // },
+        selectPlace(placeId) {
+            debugger;
+            this.$emit('selected', placeId);
+        }
         // emitDelete(email){
         //     this.$emit('delete',email.id)
         // }

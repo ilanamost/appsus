@@ -48,7 +48,6 @@ export default {
         deleteEmail(id){
             emailService.deleteEmail(id)
             .then(this.setEmails)
-        
         },
         setFilter(filterBy) {
             this.filter  = filterBy;

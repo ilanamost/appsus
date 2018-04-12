@@ -50,6 +50,15 @@ function createPlace(lat, lng) {
     return place;
 }
 
+function deletePlace(placeId) {
+    var places = storageService.load(PLACES_KEY)
+    var placeIdx = places.findIndex(place => place.id === placeIds);
+    places.splice(placeIdx, 1);
+    storageService.store(PLACES_KEY, places);
+    return Promise.resolve({ succes: true })
+}
+
+
 export default{
     getPlaces, 
     generatePlaces,
