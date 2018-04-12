@@ -14,8 +14,8 @@ export default {
     template: `
             <section>
                 <h1>place-app</h1>
-                <place-list></place-list> 
-               <place-map></place-map>
+                <!-- <place-list></place-list> 
+               <place-map></place-map> -->
             </section>
         `,
         

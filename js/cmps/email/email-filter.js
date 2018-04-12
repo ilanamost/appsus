@@ -25,7 +25,7 @@ export default {
 
             <select v-model="filterBy.isRead" @change="emitFilter" >
                 <option value="read">Read</option>  
-                <option value="UnRead">UnRead</option>  
+                <option value="unRead">UnRead</option>  
                 <option value="all">All</option>  
             </select>
 
