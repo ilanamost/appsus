@@ -5,12 +5,12 @@ export default {
     props: ['emails'],
     data() {
         return {
-            emailsCount: 0
+           unreadEmails : 0
         }
     },
     template: `
         <section class="email-list">
-        <h1>Total emails: {{emails.length}} </h1>
+        <h1>Total emails: {{getNumOfUnreadEmails}} </h1>
         <button @click="sortByTitle" title="Sort emails by Subject">By Subject<i class="fas fa-sort-amount-up"></i></button>
         <button @click="sortByDate" title="Sort emails by date">By Date<i class="fas fa-sort-amount-up"></i></button>
             <ul>
@@ -36,6 +36,17 @@ export default {
             this.$emit('delete',email.id)
         }
     },
+
+    computed:{
+        getNumOfUnreadEmails(){
+            var count = 0;
+
+            this.emails.forEach((email)  => 
+                {if(!email.isRead) count++});
+            return count;
+        }
+    },
+
     components: {
         emailPreview
     }

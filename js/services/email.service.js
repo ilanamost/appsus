@@ -93,18 +93,18 @@ function filterEmails(emails, filter = null) {
             if (filter && filter.filterBy !== 'all') filteredEmails = emails.filter(email => {
                 return email.subject.indexOf(filter.bySubject) !== -1
                     && email.sentAt >= fromDate && email.sentAt <= toDate
-                    // && email.isRead === filter.isRead
+                // && email.isRead === filter.isRead
 
                 // && email.isRead === filter.filterBy)
             })
             else if (filter && filter.filterBy === 'all') filteredEmails = emails.filter(email => {
                 return email.subject.indexOf(filter.bySubject) !== -1
                     && email.sentAt >= fromDate && email.sentAt <= toDate
-                    // && email.isRead === filter.isRead
+                // && email.isRead === filter.isRead
             })
-    };
+        };
 
-resolve(filteredEmails);
+        resolve(filteredEmails);
     });
 }
 
@@ -118,8 +118,23 @@ resolve(filteredEmails);
 //         });
 // }
 
-function composeEmail(subject, body) {
-    window.open('mailto:noramarcelli@gmail.com?&subject='+ subject +'&body='+ body +'');
+function saveEmail(subject, body) {
+     return getEmails()
+        .then(emails => {
+
+            return new Promise((resolve, reject) => {
+                var email = {};
+                email.id = utilService.getNextId(emails);
+                email.subject = subject;
+                email.body = body;
+                email.isRead = false;
+                email.sentAt = Date.now();
+                emails.unshift(email);
+                storageService.store(EMAILS_KEY, emails);
+
+                resolve(emails);
+            });
+        });
 }
 
 
@@ -130,7 +145,7 @@ export default {
     sortByDate,
     deleteEmail,
     filterEmails,
-    composeEmail,
+    saveEmail
 }
 
 

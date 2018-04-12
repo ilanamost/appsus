@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         composeEmail() {
-            emailService.composeEmail(this.composedEmail.subject, this.composedEmail.body)
+            emailService.saveEmail(this.composedEmail.subject, this.composedEmail.body)
                 .then(emails => {
                     this.emails = emails;
                 })
@@ -25,7 +25,7 @@ export default {
         <section>
             <button type="button" @click="show = !show"> Compose </button>
 
-            <form action="javascript:sendMail();" name="pmForm" id="pmForm" method="post" v-if="show" >  
+            <form  name="pmForm" id="pmForm" v-if="show" >  
                 <input v-model="composedEmail.subject" name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" placeholder="Enter email subject" />
                 <input  v-model="composedEmail.body" name="pmBody" id="pmBody" type="text" maxlength="64" style="width:98%;" placeholder="Enter email body" />
                 <input name="pmAddress" id="pmAddress" type="text" maxlength="64" style="width:98%;" placeholder="noramarcelli@gmail.com" readonly/>
