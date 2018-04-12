@@ -5,7 +5,6 @@ export default {
     template: `
             <section>
                 <li>{{place.name}}</li>
-                <!-- <li></li> -->
             </section>
     `,
     computed:{

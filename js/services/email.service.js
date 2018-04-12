@@ -103,16 +103,6 @@ function filterEmails(emails, filter = null) {
     });
 }
 
-//might be used in case we would like to add sent items folder
-// function saveEmail(email) {
-//     return storageService.load(EMAILS_KEY)
-//         .then(emails => {
-//                 email.id = utilService.getNextId();
-//                 emails.push(email);
-//             return storageService.store(EMAILS_KEY, emails);
-//         });
-// }
-
 function saveEmail(subject, body) {
      return getEmails()
         .then(emails => {
