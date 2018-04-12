@@ -2,6 +2,7 @@ import utilService from './util.service.js'
 import storageService from './storage.service.js'
 import eventBus, {USR_MSG_DISPLAY, EMAILS_COUNT} from './event-bus.service.js'
 import LoremIpsum from './loremIpsum.js'
+import emailFilter from '../cmps/email/email-filter.js'
 
 var emailsDB = [];
 const EMAILS_KEY = 'emailsApp';
@@ -78,12 +79,35 @@ function emitEmailsCount(){
     eventBus.$emit(EMAILS_COUNT, emailsDB.length);
 }
 
+
+function filterEmails(emails, filter = null){
+    return new Promise((resolve, reject) => {
+        var filteredEmails = emails.slice();
+
+        if (filter) {
+            filteredEmails = emails.filter(email => {
+            return (email.subject.indexOf(filter.bySubject) !== -1
+            && email.sentAt >= +filter.fromDate && filter.toDate === ''
+            && filter.isRead === email.isRead);
+        });
+        }
+        resolve(filteredEmails);
+    });
+}
+
+function sendEmail() {
+    window.open('mailto:noramarcelli@gmail.com?subject=subject&body=body');
+}
+
+
 export default{
     getEmails,
     createEmail,
     sortByTitle,
     sortByDate,
-    deleteEmail
+    deleteEmail,
+    filterEmails,
+    sendEmail
 }
 
 
