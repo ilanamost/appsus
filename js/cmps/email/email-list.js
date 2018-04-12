@@ -11,8 +11,8 @@ export default {
     template: `
         <section class="email-list">
         <h1>Total emails: {{emails.length}} </h1>
-        <button @click="sortByTitle">By title</button>
-        <button @click="sortByDate">By Date</button>
+        <button @click="sortByTitle" title="Sort emails by Subject">By Subject<i class="fas fa-sort-amount-up"></i></button>
+        <button @click="sortByDate" title="Sort emails by date">By Date<i class="fas fa-sort-amount-up"></i></button>
             <ul>
                 <email-preview  v-for="email in emails"  
                 @delete="$emit('delete', email.id)" :key="email.id" 

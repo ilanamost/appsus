@@ -84,11 +84,15 @@ function filterEmails(emails, filter = null){
     return new Promise((resolve, reject) => {
         var filteredEmails = emails.slice();
 
+        console.log(filter);
         if (filter) {
+            var fromDate = filter.fromDate? new Date(filter.fromDate) : -Infinity;
+            var toDate = filter.toDate? new Date(filter.toDate) : Infinity;
             filteredEmails = emails.filter(email => {
-            return (email.subject.indexOf(filter.bySubject) !== -1
-            && email.sentAt >= +filter.fromDate && filter.toDate === ''
-            && filter.isRead === email.isRead);
+            return email.subject.indexOf(filter.bySubject) !== -1
+                    && email.sentAt >= fromDate && email.sentAt <= toDate
+                    // && email.isRead === filter.isRead
+            ;
         });
         }
         resolve(filteredEmails);
