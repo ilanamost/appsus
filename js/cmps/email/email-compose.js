@@ -11,7 +11,7 @@ export default {
     },
     methods: {
         composeEmail() {
-            emailService.composeEmail()
+            emailService.composeEmail(this.composedEmail.subject, this.composedEmail.body)
                 .then(emails => {
                     this.emails = emails;
                 })
@@ -23,14 +23,13 @@ export default {
     },
     template: `
         <section>
-            <button type="button" @click="toggleForm"> Compose </button>
+            <button type="button" @click="show = !show"> Compose </button>
 
-            <!-- <input type="text" @input="composeEmail()" /> -->
-            <form action="javascript:sendMail();" name="pmForm" id="pmForm" method="post" >  
+            <form action="javascript:sendMail();" name="pmForm" id="pmForm" method="post" v-if="show" >  
                 <input v-model="composedEmail.subject" name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" placeholder="Enter email subject" />
                 <input  v-model="composedEmail.body" name="pmBody" id="pmBody" type="text" maxlength="64" style="width:98%;" placeholder="Enter email body" />
                 <input name="pmAddress" id="pmAddress" type="text" maxlength="64" style="width:98%;" placeholder="noramarcelli@gmail.com" readonly/>
-                <button name="pmSubmit" type="submit" @click="composeEmail(composedEmail.subject, composedEmail.body)">Send</button>
+                <button name="pmSubmit" type="submit" @click="composeEmail()">Send</button>
                  
                 <ul v-for="email in emails">
                     <li>{{email.subject}}</li>

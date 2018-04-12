@@ -103,8 +103,8 @@ function filterEmails(emails, filter = null){
 //         });
 // }
 
-function composeEmail() {
-    window.open('mailto:noramarcelli@gmail.com?subject=subject&body=body');
+function composeEmail(subject, body) {
+    window.open('mailto:noramarcelli@gmail.com?&subject='+ subject +'&body='+ body +'');
 }
 
 
