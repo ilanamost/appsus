@@ -25,9 +25,7 @@ export default {
                         <div class="column is-11">
                             <email-filter @filtered="setFilter"></email-filter>
                         </div>
-                        <div class="column is-1">
-                            <email-compose></email-compose>
-                        </div>
+                        
                     </div>    
                 </div>   
             </section>
@@ -42,7 +40,11 @@ export default {
                    
                     <div class="column is-9">
                         <email-details class="notification" v-if="selectedEmail" :email="selectedEmail"> </email-details>
+                        <!-- <div class="column is-1"> -->
+                            <email-compose></email-compose>
+                        <!-- </div> -->
                     </div>
+                </div>
             </div>
             </section>
             
