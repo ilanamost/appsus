@@ -70,7 +70,7 @@ function generatePlaces() {
             id: 5,
             name: 'Niagra Falls',
             desc: 'Niagara Falls is the collective name for three waterfalls that straddle the international border between the Canadian province Ontario and the American state of New York. ',
-            tags: ['Fun','Relax', 'Romantic', 'Family'],
+            tags: ['Fun', 'Relax', 'Romantic', 'Family'],
             lat: 43.0828162,
             lng: -79.07416289999999,
             imgUrl: `img/18.jpg`
@@ -121,22 +121,48 @@ function generatePlaces() {
             imgUrl: `img/4.jpg`
         },
 
-    ];
+        ];
     return places;
 }
 
 function deletePlace(placeId) {
-    var places = storageService.load(PLACES_KEY)
+    var places = storageService.load(PLACES_KEY);
     var placeIdx = places.findIndex(place => place.id === placeId);
     places.splice(placeIdx, 1);
     storageService.store(PLACES_KEY, places);
     return Promise.resolve({ succes: true })
 }
 
+function savePlace(place) {
+    var places = storageService.load(PLACES_KEY);
+    if (place.id) {
+        var placeIdx = places.findIndex(currPlace => currPlace.id === place.id);
+        places.splice(placeIdx, 1, place);
+    } else {
+        place.id = utilService.getNextId(places);
+        places.push(place);
+    }
+    return Promise.resolve({ succes: true });
+
+    // return storageService.load(PLACES_KEY)
+    // .then(places => {
+    //     if (place.id) {
+    //         var placeIdx = places.findIndex(currPlace => currPlace.id === place.id)
+    //         places.splice(placeIdx, 1, place);
+    //     } else {
+    //         place.id = utilService.getNextId(places);
+    //         places.push(place);
+    //     }
+    //     return storageService.store(PLACES_KEY, places);
+    // });
+}
+
+
 export default {
     getPlaces,
     generatePlaces,
     deletePlace,
     placeFilter,
+    savePlace
     // createPlace
 }

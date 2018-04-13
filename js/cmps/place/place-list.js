@@ -25,7 +25,9 @@ export default {
 
             })
             this.$emit('selected', placeId);
-        }
+        },
+
+   
     },
     components: {
         placePreview

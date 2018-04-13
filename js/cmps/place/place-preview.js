@@ -1,10 +1,11 @@
 import placeService from '../../services/place.service.js'
+import mapService from '../../services/map.service.js'
 
 export default {
     props: ['place'],
     template: `
             <section>
-                <li>{{place.name}}</li>
+                <li @click="zoomIn()">{{place.name}}</li>
                 <button @click.stop="$emit('delete')" title="Delete">
                     <i class="far fa-trash-alt"></i>
                 </button>
@@ -12,5 +13,16 @@ export default {
     `,
     computed:{
      
+    },
+    methods:{
+        zoomIn(){
+            mapService.initMap(this.place.lat, this.place.lng, 10)
+            .then(()=>{
+                var lat = this.place.lat;
+                var lng = this.place.lng;
+                var name = this.place.name;
+                mapService.addMarker({lat, lng}, name);
+            })
+        }
     }
 }
