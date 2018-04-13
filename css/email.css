@@ -1,9 +1,22 @@
-
-input {
-    /* padding: 10px; */
-    margin: 5px;
+.email-app{
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-repeat: repeat;
+    /* background: linear-gradient(to right, white, rgb(223, 221, 250), #209cee); */
 }
 
+.email-control-panel, .compose {
+    margin: 10px;
+}
+
+input, button {
+    margin-bottom: 5px;
+}
+input{
+    background-color: whitesmoke;
+}
 .textarea {
     min-width: 100%;
 }
@@ -19,3 +32,18 @@ input {
 .isRead {
     max-width: 10%;
 }
+
+.email-list {
+    background: none;
+    /* margin: 5px; */
+    padding: 5px;
+}
+
+
+li.email.form-check.isRead{
+    font-weight: normal;
+ }
+
+ li.email.form-check{
+    font-weight: bold;
+ }

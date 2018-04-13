@@ -34,15 +34,14 @@ export default {
         </ul> -->
 
         <select v-model="selected" @change="emitFilter" multiple="multiple">
-                    <option value="Fun">Fun</option>  
-                    <option value="Food">Food</option>  
-                    <option value="Work">Work</option>  
-                    <option value="Romantic">Romantic</option>  
-                    <option value="Music">Music</option>  
-                    <option value="Dance">Dance</option>  
-                    <option value="Extrim">Extrim</option>  
-                    <option value="Family">Family</option>  
-                    <option value="Children">Children</option>  
+                    <option class="tag is-warning" value="Fun">Fun</option>  
+                    <option class="tag is-success" value="Food">Food</option>  
+                    <option class="tag is-danger" value="Romantic">Romantic</option>  
+                    <option class="tag is-dark" value="Music">Music</option>  
+                    <option class="tag is-link" value="Dance">Dance</option>  
+                    <option class="tag is-black" value="Extrim">Extrim</option>  
+                    <option class="tag is-primary" value="Family">Family</option>  
+                    <option class="tag is-light" value="Children">Children</option>  
         </select>
         <p> lat: {{place.lat}} , lng: {{place.lng}}</p> 
         <img :src="place.imgUrl"/>

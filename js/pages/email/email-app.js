@@ -7,7 +7,7 @@ import emailCompose from '../../cmps/email/email-compose.js'
 
 
 export default {
-    data(){
+    data() {
         return {
             emails: [],
             selectedEmail: null,
@@ -17,7 +17,8 @@ export default {
     },
 
     template: `
-        <section class="email-app grid-container">
+        <!-- <section class="email-app"> -->
+        <section class="email-app">
             <!-- <email-list @delete="deleteEmail" :emails="emails" @selected="selectEmail"> </email-list> -->
             <section class="email-control-panel">
                 <div class="block">
@@ -34,12 +35,14 @@ export default {
             <div class="block">
                 <div class="columns">
                     
-                    <div class="column is-3">
-                        <email-list class="notification" :emails="filteredEmails" @selected="selectEmail" @delete="deleteEmail"> </email-list>
+                    <div class="column is-4">
+                        <email-list class="notification" :emails="filteredEmails" 
+                        @selected="selectEmail" @delete="deleteEmail"> </email-list>
                     </div>
                    
-                    <div class="column is-9">
-                        <email-details class="notification" v-if="selectedEmail" :email="selectedEmail"> </email-details>
+                    <div class="column is-8">
+                        <email-details class="notification" v-if="selectedEmail" 
+                        :email="selectedEmail"> </email-details>
                         <!-- <div class="column is-1"> -->
                             <email-compose></email-compose>
                         <!-- </div> -->
@@ -54,23 +57,23 @@ export default {
     created() {
         this.setEmails();
     },
-    methods:{
-     
+    methods: {
+
         selectEmail(emailId) {
             var email = this.emails.find(email => email.id === emailId);
             this.selectedEmail = email;
         },
-        setEmails(){ 
+        setEmails() {
             emailService.getEmails()
-            .then(emails => this.emails = emails)
-            .then(() => this.filterEmails())
+                .then(emails => this.emails = emails)
+                .then(() => this.filterEmails())
         },
-        deleteEmail(id){
+        deleteEmail(id) {
             emailService.deleteEmail(id)
-            .then(this.setEmails)
+                .then(this.setEmails)
         },
         setFilter(filterBy) {
-            this.filter  = filterBy;
+            this.filter = filterBy;
             this.filterEmails()
             // console.log('Setting filter:', filter)
         },
@@ -90,7 +93,7 @@ export default {
     },
 
     components: {
-        emailList, 
+        emailList,
         emailPreview,
         emailDetails,
         emailFilter,
