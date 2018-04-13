@@ -5,6 +5,7 @@ import placeEdit from '../../cmps/place/place-edit.js'
 import placeService from '../../services/place.service.js'
 import mapService from '../../services/map.service.js'
 import placeFilter from '../../cmps/place/place-filter.js'
+import locService from '../../services/loc.service.js';
 
 export default {
     data(){
@@ -29,8 +30,7 @@ export default {
     methods:{
         setPlaces(){ 
             placeService.getPlaces()
-            .then(places => this.places = places)
-            // .then(() => this.filterEmails())
+            .then(places => this.places = places);
         },
         selectPlace(placeId) {
             this.showEdit = false;
@@ -59,6 +59,7 @@ export default {
                  var lat = coords.lat;
                  var lng = coords.lng; 
                  var TEMP_PIN_COLOR = "FFA500";
+                 mapService.removeMarker();
                  mapService.addMarker({lat, lng}, filterBy.name, TEMP_PIN_COLOR);
             });
         }

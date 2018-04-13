@@ -6,7 +6,7 @@
 // console.log('obj', obj);
 
 
-
+// var locs = [];
 var locs = [{lat: 11.22, lng: 22.11}]
 
 function getLocs1() {
