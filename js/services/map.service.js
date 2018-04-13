@@ -3,13 +3,13 @@ import { GoogleMapsApi } from './gmap.class.js';
 var map;
 var gMarker;
 
-function initMap(lat = 32.0749831, lng = 34.9120554) {
+function initMap(lat = 32.0749831, lng = 34.9120554, zoom = 2) {
     const gmapApi = new GoogleMapsApi();
     return gmapApi.load().then(() => {
         map = new google.maps.Map(
             document.querySelector('#map'), {
                 center: { lat, lng },
-                zoom: 15
+                zoom
             })
     });
 }

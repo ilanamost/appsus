@@ -1,4 +1,5 @@
 import placeService from '../../services/place.service.js'
+import mapService from '../../services/map.service.js'
 import placePreview from './place-preview.js';
 
 export default {
@@ -16,6 +17,13 @@ export default {
 
     methods: {
         selectPlace(placeId) {
+            mapService.initMap()
+            .then(()=>{
+                this.places.forEach(({lat, lng, name}) => {
+                    mapService.addMarker({lat, lng}, name);
+                });
+
+            })
             this.$emit('selected', placeId);
         }
     },

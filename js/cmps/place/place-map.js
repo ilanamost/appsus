@@ -14,6 +14,8 @@ export default {
     mounted() {
         mapService.initMap()
             .then(()=>{
+                // console.log('map',map);
+                
                 this.places.forEach(({lat, lng, name}) => {
                     mapService.addMarker({lat, lng}, name);
                 });
