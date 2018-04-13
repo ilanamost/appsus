@@ -12,23 +12,14 @@ export default {
         }
     },
     methods:{
-        // zoomIn(){
-        //     mapService.initMap(this.place.lat, this.place.lng, 10)
-        //     .then(()=>{
-        //         var lat = this.place.lat;
-        //         var lng = this.place.lng;
-        //         var name = this.place.name;
-        //         mapService.addMarker({lat, lng}, name);
-        //     })
-        // },
         emitOnEdit(){
             this.$emit('switchToEdit');
         }
     },
 
     template: `
-    <section class="place-details" @click="emitOnEdit();">
-        <button type="button"><i class="fas fa-pencil-alt"></i></button>
+    <section class="place-details">
+        <button type="button" @click="emitOnEdit();"><i class="fas fa-pencil-alt"></i></button>
         <p>{{place.name}}</p>
         <p>{{place.desc}}</p>
         <ul v-for="tag in place.tags">

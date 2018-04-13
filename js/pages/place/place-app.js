@@ -58,7 +58,8 @@ export default {
                 console.log('coords', coords);
                  var lat = coords.lat;
                  var lng = coords.lng; 
-                 mapService.addMarker({lat, lng}, filterBy.name);
+                 var TEMP_PIN_COLOR = "FFA500";
+                 mapService.addMarker({lat, lng}, filterBy.name, TEMP_PIN_COLOR);
             });
         }
     },
@@ -71,6 +72,7 @@ export default {
                 <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="toggleEditAndDetails"></place-details>
                 <place-edit v-if="showEdit" :place="selectedPlace"></place-edit>
                 <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Close</button>
+                <!-- <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Save</button> -->
             </section>
         `,
 }

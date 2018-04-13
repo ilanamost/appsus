@@ -17,13 +17,6 @@ export default {
 
     methods: {
         selectPlace(placeId) {
-            mapService.initMap()
-            .then(()=>{
-                this.places.forEach(({lat, lng, name}) => {
-                    mapService.addMarker({lat, lng}, name);
-                });
-
-            })
             this.$emit('selected', placeId);
         },
 

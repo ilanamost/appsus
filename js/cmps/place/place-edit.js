@@ -3,49 +3,24 @@ import mapService from '../../services/map.service.js'
 
 export default {
     props: ['place'],
-    // created() {
-    //     const placeId  = +this.$route.params.placeId;
-    //     if (placeId) {
-    //         placeService.getById(placeId)
-    //         .then(place => {
-    //             this.place = place
-    //         })
-    //     }
-    // },
-    // computed: {
-    //     dateStr() {
-    //         return moment(this.place.sentAt).format("MMM Do YY")
-    //     }
-    // },
+
     methods: {
-        zoomIn() {
-            mapService.initMap(this.place.lat, this.place.lng, 10)
-                .then(() => {
-                    var lat = this.place.lat;
-                    var lng = this.place.lng;
-                    var name = this.place.name;
-                    mapService.addMarker({ lat, lng }, name);
-                })
-        },
         savePlace() {
             console.log(this.place);
             placeService.savePlace(this.place)
-            .then(()=>{
-                console.log('Saved!');
-                // this.$router.push('/place');
-            })
+                .then(() => {
+                    console.log('Saved!');
+                    // this.$router.push('/place');
+                })
         }
     },
 
     template: `
-    <section class="place-details" @click="zoomIn">
+    <section class="place-details">
         <input type="text" v-model="place.name"/>
         </br>
         <input type="text" v-model="place.desc"/>
         </br>
-        <!-- <ul v-for="tag in place.tags">
-            <li>{{tag}}</li>
-        </ul> -->
 
         <select v-model="place.tags" @change.prevent="" multiple="multiple" >
                     <option value="Fun">Fun</option>  
