@@ -4,6 +4,12 @@ import mapService from '../../services/map.service.js'
 export default {
     props: ['place'],
 
+    data(){
+        return {
+            placeToEdit: null
+        }
+    },
+
     methods: {
         savePlace() {
             console.log(this.place);
@@ -17,38 +23,21 @@ export default {
 
     created(){
             if (this.place === null) {
-                // debugger;
+                this.placeToEdit = {name:'', desc: '', tags: [], imgUrl: ''};
                 // console.log('this.place', this.place);
-                this.place = new Object();
-                // this.place.name = 'enter place';
-                // this.place.desc = 'enter desc';
-                // this.place.tags = [];
-                console.log('this.place', this.place);
+            } else{
+                this.placeToEdit = this.place;
             }
-    },
-
-    computed: {
-        // setPlace(){
-        //     if(this.place === null){
-        //         debugger;
-        //         // console.log('this.place', this.place);
-
-        //         this.place.name = 'enter place';
-        //         this.place.desc = 'enter desc';
-        //         this.place.tags = [];
-        //         console.log('this.place', this.place);
-        //     }
-        // }
     },
 
     template: `
     <section class="place-details">
-        <input type="text" v-model="place.name"/>
+        <input type="text" v-model="placeToEdit.name"/>
         </br>
-        <input type="text" v-model="place.desc"/>
+        <input type="text" v-model="placeToEdit.desc"/>
         </br>
 
-        <select v-model="place.tags" @change.prevent="" multiple="multiple" >
+        <select v-model="placeToEdit.tags" @change.prevent="" multiple="multiple" >
                     <option class="tag is-warning" value="Fun">Fun</option>  
                     <option class="tag is-success" value="Food">Food</option>  
                     <option class="tag is-danger" value="Romantic">Romantic</option>  
@@ -59,10 +48,10 @@ export default {
                     <option class="tag is-light" value="Children">Children</option>  
         </select>
         </br>
-        <img :src="place.imgUrl"/>
+        <img :src="placeToEdit.imgUrl"/>
         </br>
-        <p> lat: {{place.lat}} , lng: {{place.lng}}</p>
-        <button type="button" @click="savePlace">{{(place.id)? 'Save': 'Add'}}</button>
+        <p> lat: {{placeToEdit.lat}} , lng: {{placeToEdit.lng}}</p>
+        <button type="button" @click="savePlace">{{(placeToEdit.id)? 'Save': 'Add'}}</button>
         <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
     </section>
     `
