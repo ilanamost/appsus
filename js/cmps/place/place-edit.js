@@ -27,13 +27,24 @@ export default {
 
     template: `
     <section class="place-details" @click="zoomIn">
-        <!-- <button type="button"><i class="fas fa-pencil-alt"></i></button> -->
-        <input type="text" placeholder="place.name"/>
-        <p>{{place.desc}}</p>
-        <ul v-for="tag in place.tags">
+        <input type="text" v-model="place.name"/>
+        <input type="text" v-model="place.desc"/>
+        <!-- <ul v-for="tag in place.tags">
             <li>{{tag}}</li>
-        </ul>
-        <p>{{place.lat}} , {{place.lng}}</p> 
+        </ul> -->
+
+        <select v-model="selected" @change="emitFilter" multiple="multiple">
+                    <option value="Fun">Fun</option>  
+                    <option value="Food">Food</option>  
+                    <option value="Work">Work</option>  
+                    <option value="Romantic">Romantic</option>  
+                    <option value="Music">Music</option>  
+                    <option value="Dance">Dance</option>  
+                    <option value="Extrim">Extrim</option>  
+                    <option value="Family">Family</option>  
+                    <option value="Children">Children</option>  
+        </select>
+        <p> lat: {{place.lat}} , lng: {{place.lng}}</p> 
         <img :src="place.imgUrl"/>
     </section>
     `
