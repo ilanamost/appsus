@@ -8,12 +8,12 @@ import placeFilter from '../../cmps/place/place-filter.js'
 import locService from '../../services/loc.service.js';
 
 export default {
-    data(){
+    data() {
         return {
             places: [],
             selectedPlace: null,
-            showEdit:false,
-            showDetails:true
+            showEdit: false,
+            showDetails: true
         }
     },
     components: {
@@ -27,8 +27,8 @@ export default {
         this.setPlaces();
     },
 
-    methods:{
-        setPlaces(){ 
+    methods: {
+        setPlaces() {
             placeService.getPlaces()
             .then(places => this.places = places);
         },
@@ -36,18 +36,18 @@ export default {
             this.showEdit = false;
             this.showDetails = true;
             var place = this.places.find(place => place.id === placeId);
-            console.log({place})
+            console.log({ place })
             this.selectedPlace = place;
         },
-        deletePlace(id){
+        deletePlace(id) {
             placeService.deletePlace(id)
-            .then(this.setPlaces);
+                .then(this.setPlaces);
         },
-        func(){
+        func() {
             this.showEdit = true;
             this.showDetails = false;
         },
-        toggleEditAndDetails(){
+        toggleEditAndDetails() {
             this.showEdit = !this.showEdit;
             this.showDetails = !this.showDetails;
         },
@@ -74,14 +74,32 @@ export default {
     },
 
     template: `
-            <section>
-                <place-filter :places="places" @filtered="setFilter"></place-filter> 
-                <place-list :places="places" @selected="selectPlace" @delete="deletePlace"></place-list> 
-                <place-map :places="places"></place-map>
-                <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="toggleEditAndDetails"></place-details>
-                <place-edit v-if="showEdit" :place="selectedPlace"></place-edit>
-                <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Close</button>
-                <!-- <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Save</button> -->
+        <section class="map-app">
+            <section class="map-control-panel">  
+                <div class="block">  
+                    <div class="columns">
+                        <div class="column is-11">
+                        <place-filter :places="places" @filtered="setFilter"></place-filter> 
+                        </div>
+                    </div>  
+                </div> 
             </section>
+            
+            <section class="deatils-compose">
+                <div class="block">
+                    <div class="columns">
+                        <div class="column is-2">
+                        <place-list :places="places" @selected="selectPlace" @delete="deletePlace"></place-list>  
+                        </div>
+                        <div class="column is-9">
+                            <place-map :places="places"></place-map>
+                            <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="toggleEditAndDetails"></place-details>
+                            <place-edit v-if="showEdit" :place="selectedPlace"></place-edit>
+                            <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Close</button>
+                        </div>
+                    </div>    
+                </div>
+            </section>
+        </section>    
         `,
 }

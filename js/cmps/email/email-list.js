@@ -11,10 +11,16 @@ export default {
     template: `
         <section class="email-list">
             <div class="block">
-                <div class="notification is-info">
-                    <h1 class="tag is-white">Total emails: {{getNumOfUnreadEmails}} </h1>
-                    <button class="button is-info is-small" @click="sortByTitle" title="Sort emails by Subject">By Subject<i class="fas fa-sort-amount-up"></i></button>
-                    <button class="button is-info is-small" @click="sortByDate" title="Sort emails by date">By Date<i class="fas fa-sort-amount-up"></i></button>
+
+                <button class="button is-info is-outlined is-small" @click="sortByTitle" 
+                title="Sort emails by Subject">By Subject &nbsp<i class="fas fa-sort-amount-up"></i></button>
+                <button class="button is-info is-outlined is-small" @click="sortByDate" 
+                title="Sort emails by date ">By Date &nbsp <i class="fas fa-sort-amount-up"></i></button>
+                
+                <span class="tag is-link">Unread: {{getNumOfUnreadEmails}} </span>
+                
+                
+                <div class="notification is-info is-small">
                     <ul>
                         <email-preview  v-for="email in emails"  
                         @delete="$emit('delete', email.id)" :key="email.id" 
@@ -22,6 +28,7 @@ export default {
                         </email-preview>
                     </ul>
                 </div>    
+            
             </div>    
         </section>
     `,

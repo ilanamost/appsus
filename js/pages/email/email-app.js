@@ -17,7 +17,8 @@ export default {
     },
 
     template: `
-        <section class="email-app grid-container">
+        <!-- <section class="email-app"> -->
+        <section class="email-app">
             <!-- <email-list @delete="deleteEmail" :emails="emails" @selected="selectEmail"> </email-list> -->
             <section class="email-control-panel">
                 <div class="block">
@@ -33,12 +34,15 @@ export default {
             <section class="deatils-compose">
             <div class="block">
                 <div class="columns">
-                    <div class="column is-3">
-                        <email-list class="notification" :emails="filteredEmails" @selected="selectEmail" @delete="deleteEmail"> </email-list>
+                    
+                    <div class="column is-4">
+                        <email-list class="notification" :emails="filteredEmails" 
+                        @selected="selectEmail" @delete="deleteEmail"> </email-list>
                     </div>
                    
-                    <div class="column is-9">
-                        <email-details class="notification" v-if="selectedEmail" :email="selectedEmail"> </email-details>
+                    <div class="column is-8">
+                        <email-details class="notification" v-if="selectedEmail" 
+                        :email="selectedEmail"> </email-details>
                         <!-- <div class="column is-1"> -->
                             <email-compose></email-compose>
                         <!-- </div> -->

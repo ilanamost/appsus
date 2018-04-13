@@ -3,29 +3,22 @@
 @import './toggle-btn.css';
 @import './user-msg.css';
 @import './email.css';
+@import './place.css';
 
 .gothic {
     font-family: 'Gothic';
 }
-.container {
+/* .container {
     max-width: 1050px;
-    /* margin: 0 auto; */
     width: 100%;
     padding-right: 10px;
     padding-left: 10px;
-}
+} */
 
 header{
     background-color: lightblue;
     background-image: url(../img/cloud.png);
     color: #fff;
     text-align: center;
- }
-
- li.email.form-check.isRead{
-    font-weight: normal;
- }
-
- li.email.form-check{
-    font-weight: bold;
+    height: ;
  }

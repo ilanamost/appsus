@@ -4,18 +4,18 @@ export default {
     props: ['email'],
     template: `
             <section class="email-preview">
-                <li class="email form-check" :class="{isRead: email.isRead}" @click="email.isRead = !email.isRead">
-                    <p  
+                <ul class="email form-check" :class="{isRead: email.isRead}" @click="email.isRead = !email.isRead">
+                    <li  
                         name="checkbox101"  
                         class="filled-in form-check-input" 
                         :checked="email.isRead" 
                         @change="email.isRead = !email.isRead">
-                        </p>
-                    <i :class="envelopeClass"></i> 
+                    </li>
+                    <i :class="envelopeClass"></> 
                     
                     &nbsp; {{email.subject}}
                     <button class="delete is-small" @click.stop="$emit('delete')" title="Delete"></button>
-                </li>
+                </ul>
             </section>
     `,
     computed:{

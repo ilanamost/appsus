@@ -4,11 +4,11 @@ import mapService from '../../services/map.service.js'
 export default {
     props: ['place'],
     template: `
-            <section>
+            <section class="place-preview">
+                <ul class="email form-check">
                 <li @click="zoomIn">{{place.name}}</li>
-                <button @click.stop="$emit('delete')" title="Delete">
-                    <i class="far fa-trash-alt"></i>
-                </button>
+                    <button class="delete is-small" @click.stop="$emit('delete')" title="Delete"></button>
+                </ul>    
             </section>
     `,
     computed:{
