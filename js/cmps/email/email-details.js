@@ -11,7 +11,7 @@ export default {
       }
    },
     template: `
-    <section class="email-details ">
+    <section class="email-details">
         <div class="message">
             <h1 class="email-subject message-header">{{email.subject}}</h1>
             <div class="message-body">

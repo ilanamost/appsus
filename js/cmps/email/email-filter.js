@@ -17,21 +17,22 @@ export default {
     },
     template: `
         <section class="container book-filter">
+            <div class="block">
+                <input class="input is-small subject" type="text" v-model="filterBy.bySubject" @input="emitFilter" title="By Subject" placeholder="Filter By Subject"/>
+                <!-- <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button> -->
+                <input class="input is-small date" type="date" v-model="filterBy.fromDate" @input="emitFilter" title="From Date"  placeholder="From.."/>
+                <input class="input is-small date" type="date" v-model="filterBy.toDate" @input="emitFilter" title="to Date" placeholder="To.."/>
 
-            <input type="text" v-model="filterBy.bySubject" @input="emitFilter" title="By Subject" placeholder="Filter By Subject"/>
-            <!-- <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button> -->
-            <input type="date" v-model="filterBy.fromDate" @input="emitFilter" title="From Date"/>
-            <input type="date" v-model="filterBy.toDate" @input="emitFilter" title="to Date"/>
-
-            <select v-model="filterBy.isRead" @change="emitFilter" >
-                <option value="read">Read</option>  
-                <option value="unRead">UnRead</option>  
-                <option value="all">All</option>  
-            </select>
-
-                <!-- <option type="radio" name="isRead" value="read">read<br>
-                <input type="radio" name="isRead" value="unread">unread<br> -->
-
+                <span class="select is-small isRead">
+                    <select v-model="filterBy.isRead" @change="emitFilter" >
+                        <option value="read">Read</option>  
+                        <option value="unRead" selected="selected">UnRead</option>  
+                        <option value="all">All</option>  
+                    </select>
+                </span>
+                    <!-- <option type="radio" name="isRead" value="read">read<br>
+                    <input type="radio" name="isRead" value="unread">unread<br> -->
+            </div>
         </section>
             `
     };

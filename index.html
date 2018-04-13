@@ -17,12 +17,15 @@
         <header class="">
             <user-msg></user-msg>
             <h1>Appsus</h1>
-
-            <router-link to="/">Home|</router-link>
-            <router-link to="/about">About|</router-link>
-            <router-link to="/misterEmail">misterEmail|</router-link>
-            <router-link to="/misterPlace">misterPlace|</router-link>
-            <router-link to="/misterKeeper">misterKeeper</router-link>
+            <div class="block">
+                <nav class="level-left">
+                    <router-link class="level-item" to="/">Home</router-link>
+                    <router-link class="level-item" to="/about">About</router-link>
+                    <router-link class="level-item" to="/misterEmail">misterEmail</router-link>
+                    <router-link class="level-item" to="/misterPlace">misterPlace</router-link>
+                    <router-link class="level-item" to="/misterKeeper">misterKeeper</router-link>
+                </nav>    
+            </div>
         </header>
         <router-view></router-view>
     </div>
