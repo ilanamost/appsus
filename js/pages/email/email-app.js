@@ -19,12 +19,34 @@ export default {
     template: `
         <section class="email-app grid-container">
             <!-- <email-list @delete="deleteEmail" :emails="emails" @selected="selectEmail"> </email-list> -->
-            <email-filter @filtered="setFilter"> </email-filter>
-            <email-list  :emails="filteredEmails" @selected="selectEmail" @delete="deleteEmail"> </email-list>
-            <section class="preview-wrapper">
-                <email-compose></email-compose>
-                <email-details v-if="selectedEmail" :email="selectedEmail"> </email-details>
+            <section class="email-control-panel">
+                <div class="block">
+                    <div class="columns">
+                        <div class="column is-11">
+                            <email-filter @filtered="setFilter"></email-filter>
+                        </div>
+                        <div class="column is-1">
+                            <email-compose></email-compose>
+                        </div>
+                    </div>    
+                </div>   
             </section>
+
+            <section class="deatils-compose">
+            <div class="block">
+                <div class="columns">
+                    
+                    <div class="column is-3">
+                        <email-list class="notification" :emails="filteredEmails" @selected="selectEmail" @delete="deleteEmail"> </email-list>
+                    </div>
+                   
+                    <div class="column is-9">
+                        <email-details class="notification" v-if="selectedEmail" :email="selectedEmail"> </email-details>
+                    </div>
+            </div>
+            </section>
+            
+            </div>
         </section>`,
 
     created() {

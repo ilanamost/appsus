@@ -23,7 +23,7 @@ export default {
     },
     template: `
         <section>
-            <button type="button" @click="show = !show"> Compose </button>
+            <button class="button is-info is-small" type="button" @click="show = !show"> Compose </button>
 
             <form  name="pmForm" id="pmForm" v-if="show" >  
                 <input v-model="composedEmail.subject" name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" placeholder="Enter email subject" />

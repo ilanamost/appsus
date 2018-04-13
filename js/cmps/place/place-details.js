@@ -36,6 +36,7 @@ export default {
         </ul>
         <p>{{place.lat}} , {{place.lng}}</p> 
         <img :src="place.imgUrl"/>
+        <!-- <i class="fas fa-map-marker"></i> -->
     </section>
     `
 }

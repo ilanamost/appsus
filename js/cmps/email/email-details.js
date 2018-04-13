@@ -11,10 +11,15 @@ export default {
       }
    },
     template: `
-    <section class="email-details">
-        <h1 class="email-subject">{{email.subject}}</h1>
-        <p>{{email.body}}</p>
-        <p>{{dateStr}}</p>
+    <section class="email-details ">
+        <div class="message">
+            <h1 class="email-subject message-header">{{email.subject}}</h1>
+            <div class="message-body">
+                <p>{{email.body}}</p>
+                <p>{{dateStr}}</p>
+            </div>    
+        </div>
+
     </section>
     `
 }

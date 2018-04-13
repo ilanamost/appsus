@@ -5,20 +5,24 @@ export default {
     props: ['emails'],
     data() {
         return {
-           unreadEmails : 0
+            unreadEmails: 0
         }
     },
     template: `
         <section class="email-list">
-        <h1>Total emails: {{getNumOfUnreadEmails}} </h1>
-        <button @click="sortByTitle" title="Sort emails by Subject">By Subject<i class="fas fa-sort-amount-up"></i></button>
-        <button @click="sortByDate" title="Sort emails by date">By Date<i class="fas fa-sort-amount-up"></i></button>
-            <ul>
-                <email-preview  v-for="email in emails"  
-                @delete="$emit('delete', email.id)" :key="email.id" 
-                :email="email" @click.native="selectEmail(email.id)"> 
-                </email-preview>
-           </ul>
+            <div class="block">
+                <div class="notification is-info">
+                    <h1 class="tag is-white">Total emails: {{getNumOfUnreadEmails}} </h1>
+                    <button class="button is-info is-small" @click="sortByTitle" title="Sort emails by Subject">By Subject<i class="fas fa-sort-amount-up"></i></button>
+                    <button class="button is-info is-small" @click="sortByDate" title="Sort emails by date">By Date<i class="fas fa-sort-amount-up"></i></button>
+                    <ul>
+                        <email-preview  v-for="email in emails"  
+                        @delete="$emit('delete', email.id)" :key="email.id" 
+                        :email="email" @click.native="selectEmail(email.id)"> 
+                        </email-preview>
+                    </ul>
+                </div>    
+            </div>    
         </section>
     `,
     methods: {
@@ -31,17 +35,16 @@ export default {
         sortByDate() {
             this.emails.sort(emailService.sortByDate);
         },
-        emitDelete(email){
-            this.$emit('delete',email.id)
+        emitDelete(email) {
+            this.$emit('delete', email.id)
         }
     },
 
-    computed:{
-        getNumOfUnreadEmails(){
+    computed: {
+        getNumOfUnreadEmails() {
             var count = 0;
 
-            this.emails.forEach((email)  => 
-                {if(!email.isRead) count++});
+            this.emails.forEach((email) => { if (!email.isRead) count++ });
             return count;
         }
     },

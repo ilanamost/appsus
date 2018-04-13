@@ -34,3 +34,45 @@ export default {
             </section>
             `
     };
+
+    // document.querySelector('form')
+    // .addEventListener('submit', (ev) => {
+    //     ev.preventDefault();
+    //     var address = document.querySelector('input').value;
+    //     convertToCoords(address);
+    //     renderAddress(address);
+    // })
+
+
+    
+// function convertToCoords(strURL) {
+//     // console.log(address);
+//     let address = document.querySelector('input').value;
+//     let addressToCopy = document.querySelector('.searched-address').innerText;
+//     //    renderAddress(address);
+
+//     if (address) {
+//         return geocoding(address).then(function (coords) {
+//             if (strURL) {
+//                 console.log('coords', coords);
+//                 strURL += '?lat=' + coords.lat + '&lng=' + coords.lng;
+//                 console.log('strURL', strURL);
+
+//                 return coords;
+//             }
+//         })
+//     } else {
+//         return geocoding(addressToCopy).then(function (coords) {
+//             if (strURL) {
+//                 console.log('coords', coords);
+//                 strURL += '?lat=' + coords.lat + '&lng=' + coords.lng;
+//                 console.log('strURL', strURL);
+//                 // return coords;
+//             }
+//         });
+//     }
+// }
+
+// function renderAddress(address) {
+//     document.querySelector('.searched-address').innerText = address;
+// }
