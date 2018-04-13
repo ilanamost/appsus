@@ -62,6 +62,14 @@ export default {
                  mapService.removeMarker();
                  mapService.addMarker({lat, lng}, filterBy.name, TEMP_PIN_COLOR);
             });
+
+            // this.toggleEditAndDetails();
+            this.showEdit = true;
+            this.showDetails = false;
+            // console.log('this.showEdit', this.showEdit);
+            // console.log('this.showDetails', this.showDetails);
+            
+            
         }
     },
 

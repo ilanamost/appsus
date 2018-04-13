@@ -15,6 +15,32 @@ export default {
         }
     },
 
+    created(){
+            if (this.place === null) {
+                // debugger;
+                // console.log('this.place', this.place);
+                this.place = new Object();
+                // this.place.name = 'enter place';
+                // this.place.desc = 'enter desc';
+                // this.place.tags = [];
+                console.log('this.place', this.place);
+            }
+    },
+
+    computed: {
+        // setPlace(){
+        //     if(this.place === null){
+        //         debugger;
+        //         // console.log('this.place', this.place);
+
+        //         this.place.name = 'enter place';
+        //         this.place.desc = 'enter desc';
+        //         this.place.tags = [];
+        //         console.log('this.place', this.place);
+        //     }
+        // }
+    },
+
     template: `
     <section class="place-details">
         <input type="text" v-model="place.name"/>
