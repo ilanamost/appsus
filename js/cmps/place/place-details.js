@@ -20,11 +20,14 @@ export default {
                 var name = this.place.name;
                 mapService.addMarker({lat, lng}, name);
             })
+        },
+        emitOnEdit(){
+            this.$emit('switchToEdit');
         }
     },
 
     template: `
-    <section class="place-details" @click="zoomIn">
+    <section class="place-details" @click="zoomIn(); emitOnEdit();">
         <button type="button"><i class="fas fa-pencil-alt"></i></button>
         <p>{{place.name}}</p>
         <p>{{place.desc}}</p>

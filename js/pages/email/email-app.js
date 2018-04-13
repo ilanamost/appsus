@@ -30,12 +30,8 @@ export default {
     created() {
         this.setEmails();
     },
-
-    computed:{
-      
-    },
-
     methods:{
+     
         selectEmail(emailId) {
             var email = this.emails.find(email => email.id === emailId);
             this.selectedEmail = email;
@@ -60,7 +56,13 @@ export default {
                 .then(curEmails => {
                     this.filteredEmails = curEmails
                 });
-        }
+        },
+        // setSelectedEmail(){
+        //     if(this.selectedEmail === null){
+        //         this.selectedEmail = this.emails[0];
+        //         console.log('this.emails', this.emails);
+        //     }
+        // }
     },
 
     components: {

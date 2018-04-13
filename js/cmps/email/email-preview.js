@@ -9,8 +9,7 @@ export default {
                         name="checkbox101"  
                         class="filled-in form-check-input" 
                         :checked="email.isRead" 
-                        @change="email.isRead = !email.isRead"
-                        />
+                        @change="email.isRead = !email.isRead"/>
                     <i :class="envelopeClass"></i> 
                     
                     &nbsp; {{email.subject}}

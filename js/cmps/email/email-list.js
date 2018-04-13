@@ -21,7 +21,6 @@ export default {
            </ul>
         </section>
     `,
-
     methods: {
         selectEmail(emailId) {
             this.$emit('selected', emailId);
