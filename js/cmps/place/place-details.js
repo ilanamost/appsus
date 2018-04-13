@@ -20,7 +20,11 @@ export default {
     template: `
     <section class="place-details" @click="emitOnEdit();">
         <div class="message">
-            <p class="email-subject message-header">{{place.name}}<button type="button" @click="emitOnEdit();"><i class="fas fa-pencil-alt"></i></button></p>
+            <p class="email-subject message-header">{{place.name}}
+                <button type="button" @click="emitOnEdit();">
+                   <i class="fas fa-pencil-alt"></i>
+                </button>
+            </p>
                 
             <div class="message-body">
                 <div class="block">

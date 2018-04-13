@@ -47,9 +47,14 @@ export default {
             this.showEdit = true;
             this.showDetails = false;
         },
-        toggleEditAndDetails() {
-            this.showEdit = !this.showEdit;
-            this.showDetails = !this.showDetails;
+        showDetailsFunc() {
+            this.showEdit = false;
+            this.showDetails = true;
+        },
+        showEditFunc() {
+            // debugger;
+            this.showEdit = true;
+            this.showDetails = false;
         },
         setFilter(filterBy){
             console.log('filterBy', filterBy);
@@ -93,9 +98,9 @@ export default {
                         </div>
                         <div class="column is-9">
                             <place-map :places="places"></place-map>
-                            <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="toggleEditAndDetails"></place-details>
+                            <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="showEditFunc"></place-details>
                             <place-edit v-if="showEdit" :place="selectedPlace"></place-edit>
-                            <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Close</button>
+                            <button type="button" v-if="showEdit" @click="showDetailsFunc">Close</button>
                         </div>
                     </div>    
                 </div>
