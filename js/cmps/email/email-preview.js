@@ -5,16 +5,16 @@ export default {
     template: `
             <section class="email-preview">
                 <li class="email form-check" :class="{isRead: email.isRead}" @click="email.isRead = !email.isRead">
-                    <input type="checkbox" 
+                    <p  
                         name="checkbox101"  
                         class="filled-in form-check-input" 
                         :checked="email.isRead" 
-                        @change="email.isRead = !email.isRead"
-                        />
+                        @change="email.isRead = !email.isRead">
+                        </p>
                     <i :class="envelopeClass"></i> 
                     
                     &nbsp; {{email.subject}}
-                    <button @click.stop="$emit('delete')" title="Delete"><i class="far fa-trash-alt"></i></button>
+                    <button class="delete is-small" @click.stop="$emit('delete')" title="Delete"></button>
                 </li>
             </section>
     `,
