@@ -18,6 +18,7 @@ export default {
             <li>{{tag}}</li>
         </ul> 
         <img :src="place.imgUrl"/>
+        <!-- <i class="fas fa-map-marker"></i> -->
     </section>
     `
 }
