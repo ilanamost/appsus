@@ -7,30 +7,30 @@ export default {
     data(){
         return {
             selected:[],
-            filterBy: {name:'', tag: this.selected},
+            filterBy: {name:''},
         }
     },
     methods: {
-        emitFilter(){
-            console.log('Emitting Filter!');
-            this.$emit('filtered',this.filterBy);
-        }
+        // emitFilter(){
+        //     console.log('Emitting Filter!');
+        //     if(this.filterBy.name) this.$emit('filtered',this.filterBy);
+        // },
+
+        emitFilter: _.debounce(function (e) {
+            // this.bookName = e.target.value;
+            if(this.filterBy.name) this.$emit('filtered',this.filterBy);
+            // console.log('this.bookName', this.bookName);
+            // if (this.bookName) {
+            //     bookService.queryGoogleBooks(this.bookName)
+            //     .then(googleBooks => {
+            //         this.googleBooks = googleBooks;
+            //     })
+            // }
+        }, 500),
     },
     template: `
             <section class="container place-filter">
                 <input type="text" v-model="filterBy.name" @input="emitFilter" title="Search for address/ place name" placeholder="Filter By Name"/>
-                <!-- <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button> -->
-                <!-- <select v-model="selected" @change="emitFilter" multiple="multiple">
-                    <option value="Fun">Fun</option>  
-                    <option value="Food">Food</option>  
-                    <option value="Work">Work</option>  
-                    <option value="Romantic">Romantic</option>  
-                    <option value="Music">Music</option>  
-                    <option value="Dance">Dance</option>  
-                    <option value="Extrim">Extrim</option>  
-                    <option value="Family">Family</option>  
-                    <option value="Children">Children</option>  
-                </select> -->
             </section>
             `
     };

@@ -62,7 +62,8 @@ export default {
         <img :src="place.imgUrl"/>
         </br>
         <p> lat: {{place.lat}} , lng: {{place.lng}}</p>
-        <button type="button" @click="savePlace">Save</button>
+        <button type="button" @click="savePlace">{{(place.id)? 'Save': 'Add'}}</button>
+        <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
     </section>
     `
 }

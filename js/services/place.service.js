@@ -143,18 +143,25 @@ function savePlace(place) {
         places.push(place);
     }
     return Promise.resolve({ succes: true });
+}
 
-    // return storageService.load(PLACES_KEY)
-    // .then(places => {
-    //     if (place.id) {
-    //         var placeIdx = places.findIndex(currPlace => currPlace.id === place.id)
-    //         places.splice(placeIdx, 1, place);
-    //     } else {
-    //         place.id = utilService.getNextId(places);
-    //         places.push(place);
-    //     }
-    //     return storageService.store(PLACES_KEY, places);
-    // });
+
+function geocoding(address) {
+    let key = LOCATION_KEY;
+
+    return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${key}`)
+        .then(function (res) {
+            console.log('data', res.data);
+            let lat = res.data.results[0].geometry.location.lat;
+            let lng = res.data.results[0].geometry.location.lng;
+
+            // setMarker(lat, lng, address);
+            // mapService.addMarker({lat, lng}, address);
+            return { lat, lng };
+        })
+        .catch(err => {
+            console.log('err!!!', err);
+        })
 }
 
 
@@ -163,6 +170,6 @@ export default {
     generatePlaces,
     deletePlace,
     placeFilter,
-    savePlace
-    // createPlace
+    savePlace,
+    geocoding
 }
