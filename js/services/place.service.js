@@ -142,7 +142,9 @@ function savePlace(place) {
         place.id = utilService.getNextId(places);
         places.push(place);
     }
-    return Promise.resolve({ succes: true });
+    storageService.store(PLACES_KEY, places);
+
+    return Promise.resolve();
 }
 
 
@@ -164,6 +166,15 @@ function geocoding(address) {
         })
 }
 
+function addImg() {
+    // var elImgInput = document.querySelector('#imgFiles');
+    // if (elImgInput.value !== '') {
+    //     gImgs.push(createImg(elImgInput.value, ['all']));
+    //     renderImgs(gImgs);
+    //     elImgInput.value = '';
+    // }
+}
+
 
 export default {
     getPlaces,
@@ -171,5 +182,6 @@ export default {
     deletePlace,
     placeFilter,
     savePlace,
-    geocoding
+    geocoding,
+    addImg
 }

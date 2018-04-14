@@ -14,11 +14,11 @@ export default {
         savePlace() {
             if(this.setPlaceToEdit.id) this.$emit('goToDetails');
 
-            console.log(this.place);
-            placeService.savePlace(this.place)
+            // console.log(this.place);
+            placeService.savePlace(this.placeToEdit)
                 .then(() => {
                     console.log('Saved!');
-                    // this.$router.push('/place');
+                    this.$emit('placeSaved');
                 })
         },
         zoomIn() {
@@ -83,7 +83,9 @@ export default {
             }
 
             return this.placeToEdit;
-        }
+        },
+
+        
      },
 
     template: `
@@ -107,7 +109,7 @@ export default {
         <img :src="setPlaceToEdit.imgUrl"/>
         </br>
         <p> lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
-        <button type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
+        <button type="button" @click="savePlace" >{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
         <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
     </section>
     `

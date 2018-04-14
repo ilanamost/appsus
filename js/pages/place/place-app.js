@@ -91,7 +91,7 @@ export default {
                         <div class="column is-9">
                             <place-map :places="places"></place-map>
                             <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="showEditFunc"></place-details>
-                            <place-edit v-if="showEdit" :place="selectedPlace" :filterBy="filterBy" @goToDetails="showDetailsFunc"></place-edit>
+                            <place-edit @placeSaved="setPlaces" v-if="showEdit" :place="selectedPlace" :filterBy="filterBy" @goToDetails="showDetailsFunc"></place-edit>
                             <button type="button" v-if="showEdit" @click="showDetailsFunc">Close</button>
                         </div>
                     </div>    
