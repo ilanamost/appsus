@@ -22,7 +22,7 @@ export default {
                     </div>
                 </div>
                 <div class="column is-4">
-                    <img class="img-about" src="../img/us.jpg" alt="Mountain View">
+                    <img class="img-about" src="./img/us.jpg" alt="Mountain View">
                     <button class="button is-info" @click="goHome"><i class="fas fa-home"></i></button>
                 </div>
             </div>
