@@ -36,6 +36,9 @@ export default {
         },
         addImgFunc() {
             this.placeToEdit.imgUrls.push(this.imgUrl);
+        },
+        deleteImg(imgUrl){
+            this.placeToEdit = placeService.deleteImgLocaly(this.placeToEdit.id, imgUrl);
         }
     },
 
@@ -111,15 +114,14 @@ export default {
         </select>
         </br>
         <img v-for="imgUrl in setPlaceToEdit.imgUrls" :src="imgUrl"/>
+        <button v-for="(imgUrl, index) in setPlaceToEdit.imgUrls" class="fa clear-btn base-btn pointer close-window" @click="deleteImg(setPlaceToEdit.imgUrls[index])"></button>
         </br>
-        <!-- <div v-for="find in finds"> -->
-            <!-- <input v-model="find.value"> -->
             <input class="input-base" type="url" placeholder="Add image from url..." id="imgFiles" v-model="imgUrl"/>
-            <button class="fa img-grid-btn pointer" @click="addImgFunc()"></button>
-        <!-- </div> -->
+            <button class="fa img-grid-btn pointer" @click="addImgFunc"></button>
+            
         <p> lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
         <button type="button" @click="savePlace" >{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
     </section>
     `
-    // onclick="addImg()"
+    // <li v-for="(fruit, index) in fruits" :key="`fruit-${index}`"></li>
 }

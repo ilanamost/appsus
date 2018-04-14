@@ -131,6 +131,14 @@ function deletePlace(placeId) {
     return Promise.resolve({ succes: true })
 }
 
+function deleteImgLocaly(placeId, imgUrl){
+    var places = storageService.load(PLACES_KEY);
+    var place= places.find(place => place.id === placeId);
+    var imgUrlIdx = place.imgUrls.findIndex(imgUrl => imgUrl === imgUrl);
+    place.imgUrls.splice(imgUrlIdx, 1);
+    return place;
+}
+
 function savePlace(place) {
     var places = storageService.load(PLACES_KEY);
     if (place.id) {
@@ -173,5 +181,6 @@ export default {
     deletePlace,
     placeFilter,
     savePlace,
-    geocoding
+    geocoding,
+    deleteImgLocaly
 }
