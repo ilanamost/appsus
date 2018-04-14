@@ -4,6 +4,7 @@
 
 .place-details{
     margin-top: 5px; 
+    width: 98%;
 }
 
 .place-filter form {
@@ -45,3 +46,13 @@
 .place-preview li {
     padding: 10px 5px;
 }
+
+select.tags {
+    height: 3em;
+    border: none;
+}
+
+#map {
+    width: 98% important!;
+}
+

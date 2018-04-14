@@ -25,7 +25,7 @@ export default {
 
     template: `
                 <div class="map"> 
-                    <div id="map" style="width: 96%; height: 450px;"></div>
+                    <div id="map" style="width: 98%; height: 450px;"></div>
                 </div>
     `
 }
