@@ -62,6 +62,11 @@ header{
     box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
 }
 
+select.tags{
+    width: 100%;
+    overflow: scroll;
+}
+
 .app-scr{
     height: 230px;
     width: auto;

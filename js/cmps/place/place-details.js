@@ -3,14 +3,6 @@ import mapService from '../../services/map.service.js'
 
 export default {
     props: ['place'],
-    created() {
-
-    },
-    computed: {
-        // dateStr() {
-        //     return moment(this.place.sentAt).format("MMM Do YY")
-        // }
-    },
     methods: {
         emitOnEdit() {
             this.$emit('switchToEdit');
@@ -32,7 +24,12 @@ export default {
                         <div class="column is-8">
                             <p>{{place.desc}}</p>
                             <ul v-for="tag in place.tags" class="tags">
-                                <li class="tag" :class="{'is-warning': tag === 'Fun', 'is-success': tag === 'Food', 'is-danger': tag === 'Romantic', 'is-dark': tag === 'Music', 'is-link': tag === 'Dance', 'is-black': tag === 'Extrim', 'is-primary': tag === 'Family'}">{{tag}}</li>
+                                <li class="tag" 
+                                :class="{'is-warning': tag === 'Fun', 'is-success': tag === 'Food', 
+                                'is-danger': tag === 'Romantic', 'is-dark': tag === 'Music', 
+                                'is-link': tag === 'Dance', 'is-black': tag === 'Extrim', 
+                                'is-primary': tag === 'Family'}" ref="tag" >{{tag}}
+                                </li>
                             </ul>
                         </div>
                         <div class="column is-4">
