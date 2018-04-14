@@ -11,7 +11,7 @@ export default {
                         :checked="email.isRead" 
                         @change="email.isRead = !email.isRead">
                     </li>
-                    <i :class="envelopeClass"></> 
+                    <i :class="envelopeClass"></i> 
                     
                     &nbsp; {{email.subject}}
                     <button class="delete is-small" @click.stop="$emit('delete')" title="Delete"></button>

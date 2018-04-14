@@ -56,6 +56,7 @@ export default {
 
     created() {
         this.setEmails();
+        
     },
     methods: {
 
@@ -81,7 +82,8 @@ export default {
             console.log('filtering emails:', this.emails)
             emailService.filterEmails(this.emails, this.filter)
                 .then(curEmails => {
-                    this.filteredEmails = curEmails
+                    this.filteredEmails = curEmails;
+                    this.selectedEmail = this.emails[0];
                 });
         },
         // setSelectedEmail(){

@@ -13,7 +13,8 @@ export default {
             places: [],
             selectedPlace: null,
             showEdit: false,
-            showDetails: true
+            showDetails: true,
+            filterBy: {name:''}
         }
     },
     components: {
@@ -43,34 +44,32 @@ export default {
             placeService.deletePlace(id)
                 .then(this.setPlaces);
         },
-        func() {
+        showDetailsFunc() {
+            this.showEdit = false;
+            this.showDetails = true;
+        },
+        showEditFunc() {
             this.showEdit = true;
             this.showDetails = false;
         },
-        toggleEditAndDetails() {
-            this.showEdit = !this.showEdit;
-            this.showDetails = !this.showDetails;
-        },
         setFilter(filterBy){
-            console.log('filterBy', filterBy);
+            // console.log('filterBy', filterBy);
+            this.filterBy = filterBy;
+            this.selectedPlace = null;
             
             placeService.geocoding(filterBy.name).then(function (coords) {
                 console.log('coords', coords);
+                // console.log('filterBy', filterBy.lat, filterBy.lng);
                  var lat = coords.lat;
                  var lng = coords.lng; 
                  var TEMP_PIN_COLOR = "FFA500";
                  mapService.removeMarker();
                  mapService.addMarker({lat, lng}, filterBy.name, TEMP_PIN_COLOR);
             });
-
-            // this.toggleEditAndDetails();
-            this.showEdit = true;
-            this.showDetails = false;
-            // console.log('this.showEdit', this.showEdit);
-            // console.log('this.showDetails', this.showDetails);
-            
-            
-        }
+            this.showEditFunc();
+            // this.filterBy = filterBy;
+            //  console.log('filterBy', filterBy);
+        },
     },
 
     template: `
@@ -93,9 +92,9 @@ export default {
                         </div>
                         <div class="column is-9">
                             <place-map :places="places"></place-map>
-                            <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="toggleEditAndDetails"></place-details>
-                            <place-edit v-if="showEdit" :place="selectedPlace"></place-edit>
-                            <button type="button" v-if="showEdit" @click="toggleEditAndDetails">Close</button>
+                            <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="showEditFunc"></place-details>
+                            <place-edit v-if="showEdit" :place="selectedPlace" :filterBy="filterBy"></place-edit>
+                            <button type="button" v-if="showEdit" @click="showDetailsFunc">Close</button>
                         </div>
                     </div>    
                 </div>
