@@ -62,7 +62,7 @@ export default {
             if (this.place === null) {
                 this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: '', lat: 0, lng: 0 };
     
-                if (this.filterBy !== null) {
+                if (this.filterBy && this.filterBy.name) {
                     this.placeToEdit.name = this.filterBy.name;
     
                     placeService.geocoding(this.filterBy.name).then(function (coords) {

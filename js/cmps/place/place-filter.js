@@ -16,6 +16,8 @@ export default {
         // }, 500),
 
         emitFilter(){
+            // console.log('this.filterBy.name', this.filterBy.name);
+            
             if(this.filterBy.name) this.$emit('filtered',this.filterBy);
         }
     },
