@@ -10,13 +10,14 @@
 }
 
 @font-face {
-    font-family: 'The West Gate.ttf';
+    font-family: 'The West Gate';
     src: url('../fonts/The West Gate.ttf');
 }
 
 .main-h1 {
-    font-family: 'The West Gatef';
-    font-size: 30px;
+    font-family: 'The West Gate';
+    font-size: 60px;
+    color:white;
 }
 /* .container {
     max-width: 1050px;
@@ -27,10 +28,8 @@
 
 header{
     background-color: lightblue;
-    background-image: url(../img/cloud.png);
-    color: #fff;
     text-align: center;
-    height: 100px;
+    height: 130px;
     background-image: url("../img/header_Background.jpg");
     background-size: cover;
     /* height: 100%; */
@@ -38,36 +37,53 @@ header{
     background-repeat: repeat;
 }
 
-body {
+.app-container {
     background-image: url("../img/mainapp-background.jpg");
     background-position: center;
     background-size: cover;
-    height: 100%;
+    min-height: calc(100vh - 130px);
     /* width: 100%; */
     background-repeat: no-repeat;
 }
 
 
-.level-left {
+.main-index a {
     font-weight: bold;
     font-size: 16px;
-    color: aliceblue important!;
+    color: aliceblue;
 }
 
 .about {
     font-family: 'Kaushan Script', cursive;
     color:darkblue;
-    font-size: 30px;
-    padding: 30px;
-
+    font-size: 25px;
+    padding: 40px;
 }
 
 .img-about {
-    margin: 30px;
-    width: 300px;
-    height: 300px;
+    margin-top: 50px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     margin-right: 20px;
     border: 3px solid darkblue;
     box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
 }
+
+.app-scr{
+    height: 230px;
+    width: auto;
+    margin: 80px;
+    margin-bottom: 10px;
+    border: 3px solid darkblue;
+}
+.link {
+    color: darkblue;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 20px;
+}
+/* 
+.footer-home {
+    right: 40px;
+} */

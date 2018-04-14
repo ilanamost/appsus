@@ -1,7 +1,7 @@
 .email-app{
     background-image: url("../img/background.jpg");
     background-size: cover;
-    height: 100%;
+    min-height: calc(100vh - 130px);
     width: 100%;
     background-repeat: repeat;
     /* background: linear-gradient(to right, white, rgb(223, 221, 250), #209cee); */
@@ -18,7 +18,7 @@ input{
     background-color: whitesmoke;
 }
 .textarea {
-    min-width: 100%;
+    min-width: 98%;
     padding: 2px;
 }
 
@@ -29,10 +29,10 @@ input{
 .date {
     max-width: 14%;
 }
-
+/* 
 .isRead {
     max-width: 10%;
-}
+} */
 
 .email-list {
     background: none;
@@ -47,5 +47,9 @@ li.email.form-check.isRead{
 
  li.email.form-check{
     font-weight: bold;
+ }
+
+ .email-details {
+    max-width: 98%;
  }
  
