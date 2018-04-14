@@ -28,8 +28,8 @@ export default {
         setMarker(lat, lng, name){
             var TEMP_PIN_COLOR = "FFA500";
             mapService.addMarker({ lat, lng }, name, TEMP_PIN_COLOR);
-            mapService.setCenter({ lat, lng });
-            mapService.setZoom(10);
+            // mapService.setCenter({ lat, lng });
+            mapService.setZoom(1.5);
         }
     },
 
