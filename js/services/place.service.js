@@ -33,7 +33,8 @@ function generatePlaces() {
             tags: ['Extrim', 'Fun', 'Romantic'],
             lat: 64.2008413,
             lng: -149.4936733,
-            imgUrl: `img/15.jpg`
+            imgUrls: [`img/15.jpg`]
+            // imgUrl: `img/15.jpg`
         },
 
         {
@@ -43,7 +44,8 @@ function generatePlaces() {
             tags: ['Romantic', 'Fun', 'Family', 'Children'],
             lat: 40.759011,
             lng: -73.9844722,
-            imgUrl: `img/8.jpg`
+            imgUrls: [`img/8.jpg`]
+            // imgUrl: `img/8.jpg`
         },
 
         {
@@ -53,7 +55,8 @@ function generatePlaces() {
             tags: ['Fun', 'Relax', 'Romantic', 'Food'],
             lat: 7.740738,
             lng: 98.77841,
-            imgUrl: `img/1.jpg`
+            imgUrls: [`img/1.jpg`]
+            // imgUrl: `img/1.jpg`
         },
 
         {
@@ -63,7 +66,8 @@ function generatePlaces() {
             tags: ['Romantic', 'Relax', 'Family', 'Fun', 'Children'],
             lat: 51.503324,
             lng: -0.119543,
-            imgUrl: `img/10.jpg`
+            imgUrls: [`img/10.jpg`]
+            // imgUrl: `img/10.jpg`
         },
 
         {
@@ -73,7 +77,8 @@ function generatePlaces() {
             tags: ['Fun', 'Relax', 'Romantic', 'Family'],
             lat: 43.0828162,
             lng: -79.07416289999999,
-            imgUrl: `img/18.jpg`
+            imgUrls: [`img/18.jpg`]
+            // imgUrl: `img/18.jpg`
         },
         {
             id: 6,
@@ -82,7 +87,8 @@ function generatePlaces() {
             tags: ['Dance', 'Family', 'Fun', 'Romantic', 'Children'],
             lat: 19.432608,
             lng: -99.133209,
-            imgUrl: `img/11.jpg`
+            imgUrls: [`img/11.jpg`]
+            // imgUrl: `img/11.jpg`
         },
         {
             id: 7,
@@ -91,7 +97,8 @@ function generatePlaces() {
             tags: ['Fun', 'Dance', 'Family', 'Romantic'],
             lat: 9.934739,
             lng: -84.087502,
-            imgUrl: `img/14.jpg`
+            imgUrls: [`img/14.jpg`]
+            // imgUrl: `img/14.jpg`
         },
         {
             id: 8,
@@ -100,7 +107,8 @@ function generatePlaces() {
             tags: ['Food', 'Family', 'Romantic', 'Children'],
             lat: 36.121723,
             lng: 28.059464,
-            imgUrl: `img/5.jpg`
+            imgUrls: [`img/5.jpg`]
+            // imgUrl: `img/5.jpg`
         },
         {
             id: 9,
@@ -109,7 +117,8 @@ function generatePlaces() {
             tags: ['Fun', 'Family', 'Romantic', 'Children', 'Dance', 'Extrim'],
             lat: 32.109333,
             lng: 34.855499,
-            imgUrl: `img/6.jpg`
+            imgUrls: [`img/6.jpg`]
+            // imgUrl: `img/6.jpg`
         },
         {
             id: 10,
@@ -118,7 +127,8 @@ function generatePlaces() {
             tags: ['Fun', 'Family', 'Romantic', 'Children', 'Dance'],
             lat: 47.497913,
             lng: 19.040236,
-            imgUrl: `img/4.jpg`
+            imgUrls: [`img/4.jpg`]
+            // imgUrl: `img/4.jpg`
         },
 
         ];

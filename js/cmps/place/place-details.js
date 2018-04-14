@@ -11,8 +11,8 @@ export default {
         //     return moment(this.place.sentAt).format("MMM Do YY")
         // }
     },
-    methods:{
-        emitOnEdit(){
+    methods: {
+        emitOnEdit() {
             this.$emit('switchToEdit');
         }
     },
@@ -36,13 +36,12 @@ export default {
                             </ul>
                         </div>
                         <div class="column is-4">
-                            <img :src="place.imgUrl"/>
+                           <img v-for="imgUrl in place.imgUrls" :src="imgUrl"/>
                             <p><i class="fas fa-map-marker"></i>  &nbsp {{place.lat}} , {{place.lng}}</p> 
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>    
     </section>
     `

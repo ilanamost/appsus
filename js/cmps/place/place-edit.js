@@ -37,7 +37,7 @@ export default {
 
     created() {
         if (this.place === null) {
-            this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: '', lat: 0, lng: 0 };
+            this.placeToEdit = { name: '', desc: '', tags: [], imgUrls: [], lat: 0, lng: 0 };
 
             if (this.filterBy !== null) {
                 this.placeToEdit.name = this.filterBy.name;
@@ -62,7 +62,7 @@ export default {
     computed: {
         setPlaceToEdit() {
             if (this.place === null) {
-                this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: '', lat: 0, lng: 0 };
+                this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: [], lat: 0, lng: 0 };
     
                 if (this.filterBy && this.filterBy.name) {
                     this.placeToEdit.name = this.filterBy.name;
@@ -106,7 +106,10 @@ export default {
                     <option class="tag is-light" value="Children">Children</option>  
         </select>
         </br>
-        <img :src="setPlaceToEdit.imgUrl"/>
+        <!-- <div v-for="imgUrl in setPlaceToEdit.imgUrls">
+           <img :src="imgUrl"/>
+        </div> -->
+        <img v-for="imgUrl in setPlaceToEdit.imgUrls" :src="imgUrl"/>
         </br>
         <p> lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
         <button type="button" @click="savePlace" >{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
