@@ -35,7 +35,7 @@ export default {
             mapService.setZoom(2);
         },
         addImgFunc() {
-            this.place.imgUrls.push(this.imgUrl)
+            this.placeToEdit.imgUrls.push(this.imgUrl);
         }
     },
 
