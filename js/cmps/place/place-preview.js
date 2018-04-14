@@ -22,6 +22,7 @@ export default {
             this.setMarker(lat, lng, name);
         },
         setMarker(lat, lng, name){
+            mapService.removeMarker();
             mapService.addMarker({ lat, lng }, name);
             mapService.setCenter({ lat, lng });
             mapService.setZoom(10);
