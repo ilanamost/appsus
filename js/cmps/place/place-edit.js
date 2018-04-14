@@ -129,7 +129,8 @@ export default {
                                 <p><i class="fas fa-map-marker"></i>  &nbsp  lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
                                 <div class="edit-BTNs">
                                     <button class="edit-BTN button is-info is-small" type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
-                                    <!-- MOVE CLOSE BTN TO HERE INSTEAD THIS LINE--><button class="edit-BTN button is-info is-small" type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
+                                    <!-- MOVE CLOSE BTN TO HERE INSTEAD THIS LINE-->
+                                    <!-- <button class="edit-BTN button is-info is-small" type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button> -->
                                     
                                 </div>    
                             </div>
