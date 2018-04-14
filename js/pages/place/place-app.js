@@ -67,8 +67,6 @@ export default {
                  mapService.addMarker({lat, lng}, filterBy.name, TEMP_PIN_COLOR);
             });
             this.showEditFunc();
-            // this.filterBy = filterBy;
-            //  console.log('filterBy', filterBy);
         },
     },
 
@@ -93,7 +91,7 @@ export default {
                         <div class="column is-9 map-details">
                             <place-map :places="places"></place-map>
                             <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="showEditFunc"></place-details>
-                            <place-edit v-if="showEdit" :place="selectedPlace" :filterBy="filterBy"></place-edit>
+                            <place-edit @placeSaved="setPlaces" v-if="showEdit" :place="selectedPlace" :filterBy="filterBy" @goToDetails="showDetailsFunc"></place-edit>
                             <button class="button is-small is-info edit-BTN" type="button" v-if="showEdit" @click="showDetailsFunc">Close</button>
                         </div>
                     </div>    
