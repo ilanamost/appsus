@@ -42,7 +42,7 @@ export default {
                     </div>
                    
                     <div class="column is-9">
-                        <email-compose :showCompose="showCompose" @compose="showComposeFunc"></email-compose>
+                        <email-compose @emailAdded="setEmails();showDetailsFunc()" :showCompose="showCompose" @compose="showComposeFunc"></email-compose>
                         <email-details  v-if="selectedEmail && showDetails" class="notification" 
                         :email="selectedEmail"> </email-details>
                         <!-- <div class="column is-1"> -->

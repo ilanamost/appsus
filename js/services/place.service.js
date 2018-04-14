@@ -134,7 +134,7 @@ function deletePlace(placeId) {
 function deleteImgLocaly(placeId, imgUrl){
     var places = storageService.load(PLACES_KEY);
     var place= places.find(place => place.id === placeId);
-    var imgUrlIdx = place.imgUrls.findIndex(imgUrl => imgUrl === imgUrl);
+    var imgUrlIdx = place.imgUrls.findIndex(url => url === imgUrl);
     place.imgUrls.splice(imgUrlIdx, 1);
     return place;
 }
