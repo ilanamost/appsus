@@ -2,9 +2,9 @@ import placeService from '../../services/place.service.js'
 import mapService from '../../services/map.service.js'
 
 export default {
-    props: ['place'],
+    props: ['place', 'filterBy'],
 
-    data(){
+    data() {
         return {
             placeToEdit: null
         }
@@ -21,13 +21,26 @@ export default {
         }
     },
 
-    created(){
-            if (this.place === null) {
-                this.placeToEdit = {name:'', desc: '', tags: [], imgUrl: ''};
-                // console.log('this.place', this.place);
-            } else{
-                this.placeToEdit = this.place;
+    created() {
+        if (this.place === null) {
+            this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: '', lat: 0, lng: 0 };
+
+            if (this.filterBy !== null) {
+                // debugger;
+                this.placeToEdit.name = this.filterBy.name;
+
+                placeService.geocoding(this.filterBy.name).then(function (coords) {
+                    var lat = coords.lat;
+                    var lng = coords.lng;
+                    return coords;
+                }).then((coords) => {
+                    this.placeToEdit.lat = coords.lat;
+                    this.placeToEdit.lng = coords.lng;
+                });
             }
+        } else {
+            this.placeToEdit = this.place;
+        }
     },
 
     template: `
