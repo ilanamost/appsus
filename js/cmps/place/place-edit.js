@@ -12,6 +12,8 @@ export default {
 
     methods: {
         savePlace() {
+            if(this.setPlaceToEdit.id) this.$emit('goToDetails');
+
             console.log(this.place);
             placeService.savePlace(this.place)
                 .then(() => {
