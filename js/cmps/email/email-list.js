@@ -22,7 +22,7 @@ export default {
                 
                 <div class="notification is-info is-small">
                     <ul>
-                        <email-preview  v-for="email in emails"  
+                        <email-preview @details="$emit('details')" v-for="email in emails"  
                         @delete="$emit('delete', email.id)" :key="email.id" 
                         :email="email" @click.native="selectEmail(email.id)"> 
                         </email-preview>

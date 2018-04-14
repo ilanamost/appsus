@@ -4,7 +4,7 @@ export default {
     props: ['email'],
     template: `
             <section class="email-preview">
-                <ul class="email form-check" :class="{isRead: email.isRead}" @click="email.isRead = !email.isRead">
+                <ul class="email form-check" :class="{isRead: email.isRead}" @click="changeEmailStatus(); emitDetails();">
                     <li  
                         name="checkbox101"  
                         class="filled-in form-check-input" 
@@ -23,5 +23,17 @@ export default {
         envelopeClass(){
             return this.email.isRead  ? 'far fa-envelope-open' : 'far fa-envelope';
         }
-    }
+    },
+
+        methods:{
+            changeEmailStatus(){
+                this.email.isRead = !this.email.isRead;
+            },
+    
+            emitDetails(){
+                this.$emit('details');
+            }
+            
+        }
+  
 }

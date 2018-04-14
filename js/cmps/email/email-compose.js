@@ -2,6 +2,7 @@ import emailService from '../../services/email.service.js'
 import emailDetails from './email-details.js';
 
 export default {
+    props: ['showCompose'],
     data() {
         return {
             emails: null,
@@ -16,16 +17,16 @@ export default {
                     this.emails = emails;
                 })
         },
-
-        toggleForm(){
-           
+        emitCompose(){
+            this.show = !this.show;
+            this.$emit('compose');
         }
     },
     template: `
         <section>
-            <button class="button is-info is-small compose" type="button" @click="show = !show">Compose</button>
+            <button class="button is-info is-small compose" type="button" @click="emitCompose">Compose</button>
 
-                <form name="pmForm" id="pmForm" v-if="show" >  
+                <form name="pmForm" id="pmForm" v-if="show && showCompose" >  
                     <input class="input is-small" name="pmAddress" id="pmAddress" type="text" maxlength="64" style="width:98%;" placeholder="noramarcelli@gmail.com" readonly/>
                     <input class="input is-small" v-model="composedEmail.subject" name="pmSubject" id="pmSubject" type="text" maxlength="64" style="width:98%;" placeholder="Enter email subject" />
                     <input  class="textarea is-small" v-model="composedEmail.body" name="pmBody" id="pmBody" type="text" maxlength="64" style="width:98%;" placeholder="Enter email body" />

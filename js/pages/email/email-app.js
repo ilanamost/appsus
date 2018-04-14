@@ -12,7 +12,9 @@ export default {
             emails: [],
             selectedEmail: null,
             filter: null,
-            filteredEmails: []
+            filteredEmails: [],
+            showCompose: false,
+            showDetails: true
         }
     },
 
@@ -35,13 +37,13 @@ export default {
             <div class="block">
                 <div class="columns">
                     <div class="column is-3">
-                        <email-list class="notification" :emails="filteredEmails" 
+                        <email-list @details="showDetailsFunc" class="notification" :emails="filteredEmails" 
                         @selected="selectEmail" @delete="deleteEmail"> </email-list>
                     </div>
                    
                     <div class="column is-9">
-                        <email-compose></email-compose>
-                        <email-details class="notification" v-if="selectedEmail" 
+                        <email-compose :showCompose="showCompose" @compose="showComposeFunc"></email-compose>
+                        <email-details  v-if="selectedEmail && showDetails" class="notification" 
                         :email="selectedEmail"> </email-details>
                         <!-- <div class="column is-1"> -->
                         <!-- </div> -->
@@ -85,12 +87,14 @@ export default {
                     this.selectedEmail = this.emails[0];
                 });
         },
-        // setSelectedEmail(){
-        //     if(this.selectedEmail === null){
-        //         this.selectedEmail = this.emails[0];
-        //         console.log('this.emails', this.emails);
-        //     }
-        // }
+        showComposeFunc() {
+            this.showCompose = true;
+            this.showDetails = false;
+        },
+        showDetailsFunc() {
+            this.showDetails = true;
+            this.showCompose = false;
+        },
     },
 
     components: {
