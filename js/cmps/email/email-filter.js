@@ -6,7 +6,7 @@ export default {
     },
     data(){
         return {
-            filterBy: {isRead:'all', fromDate: '', toDate: '',bySubject: ''}
+            filterBy: {isRead:'UnRead', fromDate: '', toDate: '',bySubject: ''}
         }
     },
     methods: {
@@ -26,7 +26,7 @@ export default {
                 <span class="select is-small isRead">
                     <select v-model="filterBy.isRead" @change="emitFilter" >
                         <option value="read">Read</option>  
-                        <option value="unRead" selected="selected">UnRead</option>  
+                        <option value="unRead">UnRead</option>  
                         <option value="all">All</option>  
                     </select>
                 </span>

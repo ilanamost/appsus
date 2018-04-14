@@ -5,3 +5,13 @@
 .place-details{
     margin-top: 5px; 
 }
+
+.place-filter form {
+   padding: 10px;
+   display: block;
+}
+
+.place-filter input {
+    width: 70em; 
+}
+

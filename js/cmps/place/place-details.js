@@ -28,7 +28,7 @@ export default {
                         <div class="column is-8">
                             <p>{{place.desc}}</p>
                             <ul v-for="tag in place.tags">
-                                <li class="tag">{{tag}}</li>
+                                <li class="tag" :class="{'is-light': tag === 'Children', 'is-warning': tag === 'Fun', 'is-success': tag === 'Food', 'is-danger': tag === 'Romantic', 'is-dark': tag === 'Music', 'is-link': tag === 'Dance', 'is-black': tag === 'Extrim', 'is-primary': tag === 'Family'}">{{tag}}</li>
                             </ul>
                         </div>
                         <div class="column is-4">
@@ -44,4 +44,3 @@ export default {
     `
 }
 
-// :class="{tag is-light: place.tag= 'Children', tag is-warning: place.tag= 'fun', tag is-success: place.tag= 'Food', tag is-danger: place.tag= 'Romantic', tag is-dark: place.tag= 'Music', tag is-link: place.tag= 'Dance', tag is-black: place.tag= 'Extrim', tag is-primary: place.tag= 'Family'}"
