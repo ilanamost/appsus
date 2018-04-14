@@ -7,9 +7,9 @@ export default {
 
     },
     computed: {
-        dateStr() {
-            return moment(this.place.sentAt).format("MMM Do YY")
-        }
+        // dateStr() {
+        //     return moment(this.place.sentAt).format("MMM Do YY")
+        // }
     },
     methods:{
         emitOnEdit(){

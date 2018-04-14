@@ -29,8 +29,7 @@ export default {
             var TEMP_PIN_COLOR = "FFA500";
             mapService.removeMarker();
             mapService.addMarker({ lat, lng }, name, TEMP_PIN_COLOR);
-            // mapService.setCenter({ lat, lng });
-            mapService.setZoom(1.5);
+            mapService.setZoom(2);
         }
     },
 
@@ -39,7 +38,6 @@ export default {
             this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: '', lat: 0, lng: 0 };
 
             if (this.filterBy !== null) {
-                // debugger;
                 this.placeToEdit.name = this.filterBy.name;
 
                 placeService.geocoding(this.filterBy.name).then(function (coords) {
@@ -52,19 +50,48 @@ export default {
                     this.zoomIn();
                 });
             }
+            
         } else {
             this.placeToEdit = this.place;
         }
+
+        // console.log(' this.placeToEdit',  this.placeToEdit); 
     },
+    computed: {
+        setPlaceToEdit() {
+            if (this.place === null) {
+                this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: '', lat: 0, lng: 0 };
+    
+                if (this.filterBy !== null) {
+                    this.placeToEdit.name = this.filterBy.name;
+    
+                    placeService.geocoding(this.filterBy.name).then(function (coords) {
+                        var lat = coords.lat;
+                        var lng = coords.lng;
+                        return coords;
+                    }).then((coords) => {
+                        this.placeToEdit.lat = coords.lat;
+                        this.placeToEdit.lng = coords.lng;
+                        this.zoomIn();
+                    });
+                }
+                
+            } else {
+                this.placeToEdit = this.place;
+            }
+
+            return this.placeToEdit;
+        }
+     },
 
     template: `
     <section class="place-details">
-        <input type="text" v-model="placeToEdit.name"/>
+        <input type="text" v-model="setPlaceToEdit.name"/>
         </br>
-        <input type="text" v-model="placeToEdit.desc"/>
+        <input type="text" v-model="setPlaceToEdit.desc"/>
         </br>
 
-        <select v-model="placeToEdit.tags" @change.prevent="" multiple="multiple" >
+        <select v-model="setPlaceToEdit.tags" @change.prevent="" multiple="multiple" >
                     <option class="tag is-warning" value="Fun">Fun</option>  
                     <option class="tag is-success" value="Food">Food</option>  
                     <option class="tag is-danger" value="Romantic">Romantic</option>  
@@ -75,10 +102,10 @@ export default {
                     <option class="tag is-light" value="Children">Children</option>  
         </select>
         </br>
-        <img :src="placeToEdit.imgUrl"/>
+        <img :src="setPlaceToEdit.imgUrl"/>
         </br>
-        <p> lat: {{placeToEdit.lat}} , lng: {{placeToEdit.lng}}</p>
-        <button type="button" @click="savePlace">{{(placeToEdit.id)? 'Save': 'Add'}}</button>
+        <p> lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
+        <button type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
         <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
     </section>
     `

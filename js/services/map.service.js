@@ -4,7 +4,7 @@ var map;
 var gMarker;
 const DEFAULT_PIN_COLOR = "FF0000";
 
-function initMap(lat = 32.0749831, lng = 34.9120554, zoom = 1.5) {
+function initMap(lat = 32.0749831, lng = 34.9120554, zoom = 2) {
     const gmapApi = new GoogleMapsApi();
     return gmapApi.load().then(() => {
         map = new google.maps.Map(
