@@ -77,7 +77,7 @@ export default {
             <section class="map-control-panel">  
                 <div class="block">  
                     <div class="columns">
-                        <div class="column is-11">
+                        <div class="column is-12">
                         <place-filter :places="places" @filtered="setFilter"></place-filter> 
                         </div>
                     </div>  
@@ -87,14 +87,14 @@ export default {
             <section class="deatils-compose">
                 <div class="block">
                     <div class="columns">
-                        <div class="column is-2">
+                        <div class="column is-3">
                         <place-list :places="places" @selected="selectPlace" @delete="deletePlace"></place-list>  
                         </div>
-                        <div class="column is-9">
+                        <div class="column is-9 map-details">
                             <place-map :places="places"></place-map>
                             <place-details v-if="selectedPlace && showDetails" :place="selectedPlace" @switchToEdit="showEditFunc"></place-details>
                             <place-edit v-if="showEdit" :place="selectedPlace" :filterBy="filterBy"></place-edit>
-                            <button type="button" v-if="showEdit" @click="showDetailsFunc">Close</button>
+                            <button class="button is-small is-info edit-BTN" type="button" v-if="showEdit" @click="showDetailsFunc">Close</button>
                         </div>
                     </div>    
                 </div>

@@ -4,12 +4,29 @@ import toggleBtn from '../cmps/toggle-btn.js'
 export default {
     template:`
     <section class="about">
-        <h1>About {{greet}}</h1>
+        <!-- <h1>About {{greet}}</h1>
         Happy? {{isHappy}}
-        <br/><br/><br/> 
-        <toggle-btn v-model="isHappy"></toggle-btn>
-        <button @click="goHome">Go Home</button>
-    </section>
+        <br/><br/><br/>  -->
+        <!-- <toggle-btn v-model="isHappy"></toggle-btn> -->
+        <div class="block">
+            <div class="columns">
+                <div class="column is-8">
+                    <div class="about">
+                        <p>So What happens when 2 Russian girls have to work on one big project?</p>
+                        <p> Each one is comming from very different proffecional background but when we need to work together, girlpower wins!!!</p>
+                        <p>You are more than welcome to reach us directly:></p>
+                        <p>Nora Marcelli: <i class="fas fa-envelope"></i> noramarcelli@gmail.com</p>
+                        <p>Ilana Mostovski: <i class="fas fa-envelope"></i> ilana.mostovski@gmail.com</p>
+                        <p>Dosvidanie! <i class="far fa-smile"></i></p>
+                        <button @click="goHome">Go Home</button>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <img class="img-about" src="../img/us.jpg" alt="Mountain View">
+                </div>
+            </div>
+        </div>
+        </section>
     `,
     data() {
         return {

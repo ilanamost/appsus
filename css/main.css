@@ -8,6 +8,16 @@
 .gothic {
     font-family: 'Gothic';
 }
+
+@font-face {
+    font-family: 'The West Gate.ttf';
+    src: url('../fonts/The West Gate.ttf');
+}
+
+.main-h1 {
+    font-family: 'The West Gatef';
+    font-size: 30px;
+}
 /* .container {
     max-width: 1050px;
     width: 100%;
@@ -20,5 +30,44 @@ header{
     background-image: url(../img/cloud.png);
     color: #fff;
     text-align: center;
-    height: ;
- }
+    height: 100px;
+    background-image: url("../img/header_Background.jpg");
+    background-size: cover;
+    /* height: 100%; */
+    width: 100%;
+    background-repeat: repeat;
+}
+
+body {
+    background-image: url("../img/mainapp-background.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    /* width: 100%; */
+    background-repeat: no-repeat;
+}
+
+
+.level-left {
+    font-weight: bold;
+    font-size: 16px;
+    color: aliceblue important!;
+}
+
+.about {
+    font-family: 'Kaushan Script', cursive;
+    color:darkblue;
+    font-size: 30px;
+    padding: 30px;
+
+}
+
+.img-about {
+    margin: 30px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid darkblue;
+    box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+}

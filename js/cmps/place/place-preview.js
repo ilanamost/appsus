@@ -6,8 +6,8 @@ export default {
     template: `
             <section class="place-preview">
                 <ul class="email form-check">
-                <li @click="zoomIn">{{place.name}}</li>
-                    <button class="delete is-small" @click.stop="$emit('delete')" title="Delete"></button>
+                <li @click="zoomIn">{{place.name}} <button class="delete is-small" @click.stop="$emit('delete')" title="Delete"></button></li>
+                    
                 </ul>    
             </section>
     `,

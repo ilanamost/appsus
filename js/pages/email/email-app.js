@@ -34,17 +34,16 @@ export default {
             <section class="deatils-compose">
             <div class="block">
                 <div class="columns">
-                    
-                    <div class="column is-4">
+                    <div class="column is-3">
                         <email-list class="notification" :emails="filteredEmails" 
                         @selected="selectEmail" @delete="deleteEmail"> </email-list>
                     </div>
                    
-                    <div class="column is-8">
+                    <div class="column is-9">
+                        <email-compose></email-compose>
                         <email-details class="notification" v-if="selectedEmail" 
                         :email="selectedEmail"> </email-details>
                         <!-- <div class="column is-1"> -->
-                            <email-compose></email-compose>
                         <!-- </div> -->
                     </div>
                 </div>

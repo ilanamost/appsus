@@ -86,27 +86,43 @@ export default {
 
     template: `
     <section class="place-details">
-        <input type="text" v-model="setPlaceToEdit.name"/>
-        </br>
-        <input type="text" v-model="setPlaceToEdit.desc"/>
-        </br>
+        <div class="message">
+            <input class="message-header" type="text" v-model="setPlaceToEdit.name"/>
+            <div class="message-body">
+                    <div class="block">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <textarea class="textarea" maxlength="40" size="60" type="text" v-model="setPlaceToEdit.desc"></textarea>
+                                <select class="tags" v-model="setPlaceToEdit.tags" @change.prevent="" multiple="multiple" >
+                                    <option class="tag is-warning" value="Fun">Fun</option>  
+                                    <option class="tag is-success" value="Food">Food</option>  
+                                    <option class="tag is-danger" value="Romantic">Romantic</option>  
+                                    <option class="tag is-dark" value="Music">Music</option>  
+                                    <option class="tag is-link" value="Dance">Dance</option>  
+                                    <option class="tag is-black" value="Extrim">Extrim</option>  
+                                    <option class="tag is-primary" value="Family">Family</option>  
+                                    <option class="tag is-light" value="Children">Children</option>  
+                                </select>
 
-        <select v-model="setPlaceToEdit.tags" @change.prevent="" multiple="multiple" >
-                    <option class="tag is-warning" value="Fun">Fun</option>  
-                    <option class="tag is-success" value="Food">Food</option>  
-                    <option class="tag is-danger" value="Romantic">Romantic</option>  
-                    <option class="tag is-dark" value="Music">Music</option>  
-                    <option class="tag is-link" value="Dance">Dance</option>  
-                    <option class="tag is-black" value="Extrim">Extrim</option>  
-                    <option class="tag is-primary" value="Family">Family</option>  
-                    <option class="tag is-light" value="Children">Children</option>  
-        </select>
-        </br>
-        <img :src="setPlaceToEdit.imgUrl"/>
-        </br>
-        <p> lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
-        <button type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
-        <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
+                                <!-- <select>
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option value="hurr">Durr</option>
+                                </select> -->
+                            </div>
+                            <div class="column is-4">
+                                <img :src="setPlaceToEdit.imgUrl"/>
+                                <p><i class="fas fa-map-marker"></i>  &nbsp  lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
+                                <div class="edit-BTNs">
+                                    <button class="edit-BTN button is-info is-small" type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
+                                    <!-- MOVE CLOSE BTN TO HERE INSTEAD THIS LINE--><button class="edit-BTN button is-info is-small" type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
+                                    
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
+        </div> 
     </section>
     `
 }

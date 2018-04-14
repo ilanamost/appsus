@@ -17,7 +17,7 @@ export default {
                 <button class="button is-info is-outlined is-small" @click="sortByDate" 
                 title="Sort emails by date ">By Date &nbsp <i class="fas fa-sort-amount-up"></i></button>
                 
-                <span class="tag is-link">Unread: {{getNumOfUnreadEmails}} </span>
+                <span class="tag is-link unread">Unread: {{getNumOfUnreadEmails}} </span>
                 
                 
                 <div class="notification is-info is-small">

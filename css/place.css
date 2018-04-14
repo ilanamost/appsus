@@ -11,7 +11,37 @@
    display: block;
 }
 
+.deatils-compose, .map-control-panel {
+    margin: 0;
+    padding: 0;
+}
+
+.map-control-panel {
+    margin-top: 10px;
+    /* width: 70em; */
+}
+
+.map-list{
+    padding-left: 5px;
+}
+
 .place-filter input {
     width: 70em; 
 }
 
+.tags {
+    display:inline;
+    padding-top: 20px; 
+    padding: 2px;
+
+}
+
+.edit-BTN {
+    margin: 5px;
+    margin-top: 10px; 
+    /* align-items: center */
+}
+
+.place-preview li {
+    padding: 10px 5px;
+}

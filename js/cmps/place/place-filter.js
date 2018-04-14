@@ -39,16 +39,3 @@ export default {
             `
     };
 
-
-    // <!-- <button class="clear-btn filter-btn" title="Filter"><i class="fas fa-filter"></i></button> -->
-    //             <!-- <select v-model="selected" @change="emitFilter" multiple="multiple">
-    //                 <option value="Fun">Fun</option>  
-    //                 <option value="Food">Food</option>  
-    //                 <option value="Work">Work</option>  
-    //                 <option value="Romantic">Romantic</option>  
-    //                 <option value="Music">Music</option>  
-    //                 <option value="Dance">Dance</option>  
-    //                 <option value="Extrim">Extrim</option>  
-    //                 <option value="Family">Family</option>  
-    //                 <option value="Children">Children</option>  
-    //             </select> -->

@@ -8,10 +8,10 @@
 }
 
 .email-control-panel, .compose {
-    margin: 10px;
+    margin: 5px;
 }
 
-input, button {
+input, button, .compose {
     margin-bottom: 5px;
 }
 input{
@@ -19,6 +19,7 @@ input{
 }
 .textarea {
     min-width: 100%;
+    padding: 2px;
 }
 
 .subject {
@@ -26,7 +27,7 @@ input{
 }
 
 .date {
-    max-width: 5%;
+    max-width: 14%;
 }
 
 .isRead {
@@ -47,3 +48,4 @@ li.email.form-check.isRead{
  li.email.form-check{
     font-weight: bold;
  }
+ 
