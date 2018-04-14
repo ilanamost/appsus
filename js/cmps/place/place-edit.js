@@ -6,13 +6,14 @@ export default {
 
     data() {
         return {
-            placeToEdit: null
+            placeToEdit: null,
+            imgUrl: ''
         }
     },
 
     methods: {
         savePlace() {
-            if(this.setPlaceToEdit.id) this.$emit('goToDetails');
+            if (this.setPlaceToEdit.id) this.$emit('goToDetails');
 
             // console.log(this.place);
             placeService.savePlace(this.placeToEdit)
@@ -27,11 +28,14 @@ export default {
             var name = this.placeToEdit.name;
             this.setMarker(lat, lng, name);
         },
-        setMarker(lat, lng, name){
+        setMarker(lat, lng, name) {
             var TEMP_PIN_COLOR = "FFA500";
             mapService.removeMarker();
             mapService.addMarker({ lat, lng }, name, TEMP_PIN_COLOR);
             mapService.setZoom(2);
+        },
+        addImgFunc() {
+            this.place.imgUrls.push(this.imgUrl)
         }
     },
 
@@ -52,7 +56,7 @@ export default {
                     this.zoomIn();
                 });
             }
-            
+
         } else {
             this.placeToEdit = this.place;
         }
@@ -62,11 +66,11 @@ export default {
     computed: {
         setPlaceToEdit() {
             if (this.place === null) {
-                this.placeToEdit = { name: '', desc: '', tags: [], imgUrl: [], lat: 0, lng: 0 };
-    
+                this.placeToEdit = { name: '', desc: '', tags: [], imgUrls: [], lat: 0, lng: 0 };
+
                 if (this.filterBy && this.filterBy.name) {
                     this.placeToEdit.name = this.filterBy.name;
-    
+
                     placeService.geocoding(this.filterBy.name).then(function (coords) {
                         var lat = coords.lat;
                         var lng = coords.lng;
@@ -77,7 +81,7 @@ export default {
                         this.zoomIn();
                     });
                 }
-                
+
             } else {
                 this.placeToEdit = this.place;
             }
@@ -85,8 +89,8 @@ export default {
             return this.placeToEdit;
         },
 
-        
-     },
+
+    },
 
     template: `
     <section class="place-details">
@@ -106,14 +110,16 @@ export default {
                     <option class="tag is-light" value="Children">Children</option>  
         </select>
         </br>
-        <!-- <div v-for="imgUrl in setPlaceToEdit.imgUrls">
-           <img :src="imgUrl"/>
-        </div> -->
         <img v-for="imgUrl in setPlaceToEdit.imgUrls" :src="imgUrl"/>
         </br>
+        <!-- <div v-for="find in finds"> -->
+            <!-- <input v-model="find.value"> -->
+            <input class="input-base" type="url" placeholder="Add image from url..." id="imgFiles" v-model="imgUrl"/>
+            <button class="fa img-grid-btn pointer" @click="addImgFunc()"></button>
+        <!-- </div> -->
         <p> lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
         <button type="button" @click="savePlace" >{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
-        <!-- <button type="submit"> {{(car.id)? 'Save': 'Add'}}</button> -->
     </section>
     `
+    // onclick="addImg()"
 }

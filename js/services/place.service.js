@@ -34,7 +34,6 @@ function generatePlaces() {
             lat: 64.2008413,
             lng: -149.4936733,
             imgUrls: [`img/15.jpg`]
-            // imgUrl: `img/15.jpg`
         },
 
         {
@@ -45,7 +44,6 @@ function generatePlaces() {
             lat: 40.759011,
             lng: -73.9844722,
             imgUrls: [`img/8.jpg`]
-            // imgUrl: `img/8.jpg`
         },
 
         {
@@ -56,7 +54,6 @@ function generatePlaces() {
             lat: 7.740738,
             lng: 98.77841,
             imgUrls: [`img/1.jpg`]
-            // imgUrl: `img/1.jpg`
         },
 
         {
@@ -67,7 +64,6 @@ function generatePlaces() {
             lat: 51.503324,
             lng: -0.119543,
             imgUrls: [`img/10.jpg`]
-            // imgUrl: `img/10.jpg`
         },
 
         {
@@ -78,7 +74,6 @@ function generatePlaces() {
             lat: 43.0828162,
             lng: -79.07416289999999,
             imgUrls: [`img/18.jpg`]
-            // imgUrl: `img/18.jpg`
         },
         {
             id: 6,
@@ -88,7 +83,6 @@ function generatePlaces() {
             lat: 19.432608,
             lng: -99.133209,
             imgUrls: [`img/11.jpg`]
-            // imgUrl: `img/11.jpg`
         },
         {
             id: 7,
@@ -98,7 +92,6 @@ function generatePlaces() {
             lat: 9.934739,
             lng: -84.087502,
             imgUrls: [`img/14.jpg`]
-            // imgUrl: `img/14.jpg`
         },
         {
             id: 8,
@@ -108,7 +101,6 @@ function generatePlaces() {
             lat: 36.121723,
             lng: 28.059464,
             imgUrls: [`img/5.jpg`]
-            // imgUrl: `img/5.jpg`
         },
         {
             id: 9,
@@ -118,7 +110,6 @@ function generatePlaces() {
             lat: 32.109333,
             lng: 34.855499,
             imgUrls: [`img/6.jpg`]
-            // imgUrl: `img/6.jpg`
         },
         {
             id: 10,
@@ -128,10 +119,7 @@ function generatePlaces() {
             lat: 47.497913,
             lng: 19.040236,
             imgUrls: [`img/4.jpg`]
-            // imgUrl: `img/4.jpg`
-        },
-
-        ];
+        }];
     return places;
 }
 
@@ -176,14 +164,7 @@ function geocoding(address) {
         })
 }
 
-function addImg() {
-    // var elImgInput = document.querySelector('#imgFiles');
-    // if (elImgInput.value !== '') {
-    //     gImgs.push(createImg(elImgInput.value, ['all']));
-    //     renderImgs(gImgs);
-    //     elImgInput.value = '';
-    // }
-}
+
 
 
 export default {
@@ -192,6 +173,5 @@ export default {
     deletePlace,
     placeFilter,
     savePlace,
-    geocoding,
-    addImg
+    geocoding
 }

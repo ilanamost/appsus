@@ -37,7 +37,7 @@ export default {
                         </div>
                         <div class="column is-4">
                            <img v-for="imgUrl in place.imgUrls" :src="imgUrl"/>
-                            <p><i class="fas fa-map-marker"></i>  &nbsp {{place.lat}} , {{place.lng}}</p> 
+                            <p><i class="fas fa-map-marker"></i>  &nbsp; {{place.lat}} , {{place.lng}}</p> 
                         </div>
                     </div>
                 </div>
