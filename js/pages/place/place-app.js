@@ -69,7 +69,7 @@ export default {
             this.showEditFunc();
             // this.filterBy = filterBy;
             //  console.log('filterBy', filterBy);
-        }
+        },
     },
 
     template: `

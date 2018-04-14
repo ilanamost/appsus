@@ -18,6 +18,18 @@ export default {
                     console.log('Saved!');
                     // this.$router.push('/place');
                 })
+        },
+        zoomIn() {
+            var lat = this.placeToEdit.lat;
+            var lng = this.placeToEdit.lng;
+            var name = this.placeToEdit.name;
+            this.setMarker(lat, lng, name);
+        },
+        setMarker(lat, lng, name){
+            var TEMP_PIN_COLOR = "FFA500";
+            mapService.addMarker({ lat, lng }, name, TEMP_PIN_COLOR);
+            mapService.setCenter({ lat, lng });
+            mapService.setZoom(10);
         }
     },
 
@@ -36,6 +48,7 @@ export default {
                 }).then((coords) => {
                     this.placeToEdit.lat = coords.lat;
                     this.placeToEdit.lng = coords.lng;
+                    this.zoomIn();
                 });
             }
         } else {
