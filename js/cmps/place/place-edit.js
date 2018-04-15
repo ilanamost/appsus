@@ -126,6 +126,8 @@ export default {
                                 <!-- <img :src="setPlaceToEdit.imgUrl"/> -->
                                 <img v-for="imgUrl in setPlaceToEdit.imgUrls" :src="imgUrl"/>
                                 <button v-for="(imgUrl, index) in setPlaceToEdit.imgUrls" class="fa clear-btn base-btn pointer close-window" @click="deleteImg(index)"></button>
+                                <input class="input-base" type="url" placeholder="Add image from url..." id="imgFiles" v-model="imgUrl"/>
+                                <button class="fa img-grid-btn pointer" @click="addImgFunc"></button>
                                 <p><i class="fas fa-map-marker"></i>  &nbsp  lat: {{setPlaceToEdit.lat}} , lng: {{setPlaceToEdit.lng}}</p>
                                 <div class="edit-BTNs">
                                     <button class="edit-BTN button is-info is-small" type="button" @click="savePlace">{{(setPlaceToEdit.id)? 'Save': 'Add'}}</button>
